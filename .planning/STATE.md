@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Phase 1 context gathered
-last_updated: "2026-03-16T23:13:30.893Z"
+stopped_at: Completed 01-foundation/01-01-PLAN.md
+last_updated: "2026-03-16T23:52:01.678Z"
 last_activity: 2026-03-16 — Roadmap created; 34 v1 requirements mapped across 6 phases
 progress:
   total_phases: 6
   completed_phases: 0
-  total_plans: 0
-  completed_plans: 0
+  total_plans: 3
+  completed_plans: 1
   percent: 0
 ---
 
@@ -50,6 +50,7 @@ Progress: [░░░░░░░░░░] 0%
 - Trend: -
 
 *Updated after each plan completion*
+| Phase 01-foundation P01 | 5 | 2 tasks | 19 files |
 
 ## Accumulated Context
 
@@ -64,6 +65,10 @@ Recent decisions affecting current work:
 - Phase 1: Must extend tailwind.config.js with z-index values up to 1000 — Tailwind v3 default max (z-50) sits below Leaflet panes
 - Phase 2: Use `L.divIcon` with inline styles (not Tailwind classes) for all alert and camera pins — JIT scanner misses template string classes
 - Phase 2: Use named react-leaflet `<Pane>` components for polyline z-ordering — SVG paths do not support CSS z-index
+- [Phase 01-foundation]: Downgrade entire stack to pinned versions: React 18, Vite 5, react-leaflet 4, Recharts 2, Tailwind 3
+- [Phase 01-foundation]: Use Tailwind v3 PostCSS config (postcss.config.js + tailwind.config.js) not v4 @tailwindcss/vite plugin
+- [Phase 01-foundation]: Represent all map coordinates as [number, number] tuples throughout codebase - no LatLng objects
+- [Phase 01-foundation]: Reduce active views from 5 modules to 2 (mission-control, signal-analytics) matching CONTEXT.md
 
 ### Pending Todos
 
@@ -76,6 +81,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-16T23:13:30.891Z
-Stopped at: Phase 1 context gathered
-Resume file: .planning/phases/01-foundation/01-CONTEXT.md
+Last session: 2026-03-16T23:52:01.676Z
+Stopped at: Completed 01-foundation/01-01-PLAN.md
+Resume file: None
