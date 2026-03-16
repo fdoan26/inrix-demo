@@ -31,7 +31,12 @@ Decimal phases appear between their surrounding integers in numeric order.
   3. Clicking the module name area in the nav switches between Mission Control and Signal Analytics views
   4. All design tokens (background, nav, accent, congestion colors, alert colors) are available as Tailwind utilities
   5. All four mock data TypeScript files (segments, alerts, cameras, signalData) are importable with correct types
-**Plans**: TBD
+**Plans:** 3 plans
+
+Plans:
+- [ ] 01-01-PLAN.md — Dependency reinstall + config files + TypeScript interfaces
+- [ ] 01-02-PLAN.md — Zustand 3-slice store + all 4 mock data files
+- [ ] 01-03-PLAN.md — NavBar + App.tsx + placeholder views + visual verification
 
 ### Phase 2: Mission Control Map
 **Goal**: The Mission Control view shows a full-screen dark map of Los Angeles with all map layers (segments, alerts, cameras), a working filter bar, and legend overlays
@@ -98,7 +103,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
-| 1. Foundation | 0/TBD | Not started | - |
+| 1. Foundation | 0/3 | Planning complete | - |
 | 2. Mission Control Map | 0/TBD | Not started | - |
 | 3. Mission Control Panels | 0/TBD | Not started | - |
 | 4. Signal Analytics Layout | 0/TBD | Not started | - |
