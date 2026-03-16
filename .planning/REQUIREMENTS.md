@@ -127,8 +127,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 **Coverage:**
 - v1 requirements: 34 total
 - Mapped to phases: 34
-- Unmapped: 0 ✓
+- Unmapped: 0 (Phase 6 is a polish/audit phase with no new requirements)
 
 ---
 *Requirements defined: 2026-03-16*
-*Last updated: 2026-03-16 after initial definition*
+*Last updated: 2026-03-16 after roadmap creation (6 phases)*
