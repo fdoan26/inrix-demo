@@ -16,14 +16,14 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Mission Control — Map
 
-- [ ] **MAP-01**: Full-screen Leaflet map centered on Los Angeles (34.05, -118.25, zoom 11) using CartoDB Dark Matter tiles
-- [ ] **MAP-02**: 25+ road segment polylines rendered on the map, each colored by congestion level (green <25%, yellow 25-50%, orange 50-75%, red >75% delay)
-- [ ] **MAP-03**: 20+ alert pins rendered on map, color-coded by type (crash=red, construction=orange, dangerous_slowdown=yellow, event=blue, road_closure=red, hazard=orange, congestion=yellow)
-- [ ] **MAP-04**: 15+ camera pins rendered on map as black markers with numbered cluster count badges
+- [x] **MAP-01**: Full-screen Leaflet map centered on Los Angeles (34.05, -118.25, zoom 11) using CartoDB Dark Matter tiles
+- [x] **MAP-02**: 25+ road segment polylines rendered on the map, each colored by congestion level (green <25%, yellow 25-50%, orange 50-75%, red >75% delay)
+- [x] **MAP-03**: 20+ alert pins rendered on map, color-coded by type (crash=red, construction=orange, dangerous_slowdown=yellow, event=blue, road_closure=red, hazard=orange, congestion=yellow)
+- [x] **MAP-04**: 15+ camera pins rendered on map as black markers with numbered cluster count badges
 - [ ] **MAP-05**: Clicking a road segment opens the right-side detail panel with segment attributes
 - [ ] **MAP-06**: Clicking a camera pin opens the right-side detail panel with camera attributes
-- [ ] **MAP-07**: Congestion legend overlay panel renders at bottom-left of map
-- [ ] **MAP-08**: Alerts legend overlay panel renders at bottom-left of map (when alerts visible)
+- [x] **MAP-07**: Congestion legend overlay panel renders at bottom-left of map
+- [x] **MAP-08**: Alerts legend overlay panel renders at bottom-left of map (when alerts visible)
 
 ### Mission Control — Filter Bar
 
@@ -57,9 +57,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Mock Data
 
-- [ ] **DATA-01**: 25+ road segments in LA area defined with: segmentId, name, lat/lng polyline coords array, currentSpeed, freeFlowSpeed, congestionLevel (0-100), travelTime, avgTravelTime, type, FRC level, length, speedBucket
-- [ ] **DATA-02**: 20+ alerts defined with: id, type (crash/construction/dangerous_slowdown/road_closure/event/hazard/congestion), position [lat, lng], description, severity, timestamp
-- [ ] **DATA-03**: 15+ cameras defined with: id, name (e.g. "CA-91 / East of Cherry Ave (E)"), position [lat, lng], highway, direction, type
+- [x] **DATA-01**: 25+ road segments in LA area defined with: segmentId, name, lat/lng polyline coords array, currentSpeed, freeFlowSpeed, congestionLevel (0-100), travelTime, avgTravelTime, type, FRC level, length, speedBucket
+- [x] **DATA-02**: 20+ alerts defined with: id, type (crash/construction/dangerous_slowdown/road_closure/event/hazard/congestion), position [lat, lng], description, severity, timestamp
+- [x] **DATA-03**: 15+ cameras defined with: id, name (e.g. "CA-91 / East of Cherry Ave (E)"), position [lat, lng], highway, direction, type
 - [ ] **DATA-04**: Signal analytics mock data defined matching Austin TX screenshot values: KPI counts, control delay totals, LOS distribution, top 5 delay tables, top 3 corridor tables
 
 ## v2 Requirements
@@ -93,14 +93,14 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FOUND-02 | Phase 1 | Complete |
 | FOUND-03 | Phase 1 | Complete |
 | FOUND-04 | Phase 1 | Complete |
-| MAP-01 | Phase 2 | Pending |
-| MAP-02 | Phase 2 | Pending |
-| MAP-03 | Phase 2 | Pending |
-| MAP-04 | Phase 2 | Pending |
+| MAP-01 | Phase 2 | Complete |
+| MAP-02 | Phase 2 | Complete |
+| MAP-03 | Phase 2 | Complete |
+| MAP-04 | Phase 2 | Complete |
 | MAP-05 | Phase 3 | Pending |
 | MAP-06 | Phase 3 | Pending |
-| MAP-07 | Phase 2 | Pending |
-| MAP-08 | Phase 2 | Pending |
+| MAP-07 | Phase 2 | Complete |
+| MAP-08 | Phase 2 | Complete |
 | FILTER-01 | Phase 2 | Pending |
 | FILTER-02 | Phase 2 | Pending |
 | FILTER-03 | Phase 2 | Pending |
@@ -119,9 +119,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | SIG-08 | Phase 5 | Pending |
 | SIG-09 | Phase 5 | Pending |
 | SIG-10 | Phase 5 | Pending |
-| DATA-01 | Phase 2 | Pending |
-| DATA-02 | Phase 2 | Pending |
-| DATA-03 | Phase 2 | Pending |
+| DATA-01 | Phase 2 | Complete |
+| DATA-02 | Phase 2 | Complete |
+| DATA-03 | Phase 2 | Complete |
 | DATA-04 | Phase 4 | Pending |
 
 **Coverage:**
