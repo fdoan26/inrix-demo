@@ -11,7 +11,7 @@ Requirements for initial release. Each maps to roadmap phases.
 
 - [x] **FOUND-01**: Project scaffolded with Vite + React 18 + TypeScript, all specified dependencies installed (react-leaflet, Tailwind CSS v3, Recharts, Zustand, lucide-react)
 - [x] **FOUND-02**: Tailwind configured with INRIX design tokens (exact hex colors for background, nav, accent, congestion, alerts)
-- [ ] **FOUND-03**: App shell renders with dark navy layout (#0a1628 background) and top nav bar (#0d1f3c) with "INRIX IQ" logo and right-side icons
+- [x] **FOUND-03**: App shell renders with dark navy layout (#0a1628 background) and top nav bar (#0d1f3c) with "INRIX IQ" logo and right-side icons
 - [x] **FOUND-04**: Navigation between Mission Control and Signal Analytics views via nav bar module name area
 
 ### Mission Control — Map
@@ -91,7 +91,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 |-------------|-------|--------|
 | FOUND-01 | Phase 1 | Complete |
 | FOUND-02 | Phase 1 | Complete |
-| FOUND-03 | Phase 1 | Pending |
+| FOUND-03 | Phase 1 | Complete |
 | FOUND-04 | Phase 1 | Complete |
 | MAP-01 | Phase 2 | Pending |
 | MAP-02 | Phase 2 | Pending |
