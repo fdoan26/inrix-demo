@@ -5,6 +5,7 @@ import type { ActiveView } from '../types'
 export type SelectedItem =
   | { type: 'segment'; id: string }
   | { type: 'camera'; id: string }
+  | { type: 'alert'; id: string }
   | null
 
 export interface UISlice {
