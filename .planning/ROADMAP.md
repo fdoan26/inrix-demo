@@ -78,7 +78,10 @@ Plans:
   3. A Recharts bar chart of avg control delay over time is visible in the left panel with no zero-height or invisible chart
   4. LOS grades A through F are listed in the left panel with counts and color coding
   5. A light/muted map style is visible behind the Signal Analytics content
-**Plans**: TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 04-01-PLAN.md — KPI panel (counts, delay metrics, bar chart, LOS grades) + light Austin background map + layout shell
 
 ### Phase 5: Signal Analytics Tables
 **Goal**: The center content area of Signal Analytics shows all three ranked tables (Top 5 delay total, Top 5 delay per vehicle, Top 3 corridor issues) with authentic values and delta arrow styling
@@ -113,6 +116,6 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 1. Foundation | 3/3 | Complete    | 2026-03-17 |
 | 2. Mission Control Map | 2/2 | Complete   | 2026-03-17 |
 | 3. Mission Control Panels | 1/1 | Complete    | 2026-03-17 |
-| 4. Signal Analytics Layout | 0/TBD | Not started | - |
+| 4. Signal Analytics Layout | 0/1 | Not started | - |
 | 5. Signal Analytics Tables | 0/TBD | Not started | - |
 | 6. Polish | 0/TBD | Not started | - |
