@@ -34,9 +34,9 @@ Decimal phases appear between their surrounding integers in numeric order.
 **Plans:** 3/3 plans complete
 
 Plans:
-- [ ] 01-01-PLAN.md — Dependency reinstall + config files + TypeScript interfaces
-- [ ] 01-02-PLAN.md — Zustand 3-slice store + all 4 mock data files
-- [ ] 01-03-PLAN.md — NavBar + App.tsx + placeholder views + visual verification
+- [x] 01-01-PLAN.md — Dependency reinstall + config files + TypeScript interfaces
+- [x] 01-02-PLAN.md — Zustand 3-slice store + all 4 mock data files
+- [x] 01-03-PLAN.md — NavBar + App.tsx + placeholder views + visual verification
 
 ### Phase 2: Mission Control Map
 **Goal**: The Mission Control view shows a full-screen dark map of Los Angeles with all map layers (segments, alerts, cameras), a working filter bar, and legend overlays
@@ -49,7 +49,11 @@ Plans:
   4. 15+ camera pins appear as black markers with numbered cluster count badges
   5. Traffic Flow, Alerts, and Cameras toggles in the filter bar show and hide their respective map layers
   6. The congestion legend overlay is visible at the bottom-left of the map
-**Plans**: TBD
+**Plans:** 2 plans
+
+Plans:
+- [ ] 02-01-PLAN.md — Utility libs + MapView with all 3 layers + legends + MapController stub
+- [ ] 02-02-PLAN.md — FilterBar + MissionControlView wiring + old file cleanup
 
 ### Phase 3: Mission Control Panels
 **Goal**: Clicking a road segment or camera pin on the map opens a detail panel that slides in from the right with full attribute data and can be closed
@@ -104,7 +108,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete    | 2026-03-17 |
-| 2. Mission Control Map | 0/TBD | Not started | - |
+| 2. Mission Control Map | 0/2 | Planning complete | - |
 | 3. Mission Control Panels | 0/TBD | Not started | - |
 | 4. Signal Analytics Layout | 0/TBD | Not started | - |
 | 5. Signal Analytics Tables | 0/TBD | Not started | - |
