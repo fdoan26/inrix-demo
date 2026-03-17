@@ -1,7 +1,7 @@
 import React from 'react';
 import { Polyline, Tooltip } from 'react-leaflet';
 import type { Segment } from '../../types';
-import { useAppStore } from '../../store/useAppStore';
+import { useStore } from '../../store';
 
 interface Props {
   segments: Segment[];
@@ -22,7 +22,7 @@ function getCongestionLabel(level: number): string {
 }
 
 export const SegmentPolylines: React.FC<Props> = ({ segments }) => {
-  const { setPanelContent } = useAppStore();
+  const setSelectedItem = useStore((s) => s.setSelectedItem);
 
   return (
     <>
@@ -54,7 +54,7 @@ export const SegmentPolylines: React.FC<Props> = ({ segments }) => {
                 lineJoin: 'round',
               }}
               eventHandlers={{
-                click: () => setPanelContent({ type: 'segment', data: seg }),
+                click: () => setSelectedItem({ type: 'segment', id: seg.segmentId }),
                 mouseover: (e) => {
                   e.target.setStyle({ weight: 7, opacity: 1 });
                 },

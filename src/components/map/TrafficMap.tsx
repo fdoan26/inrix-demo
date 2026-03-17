@@ -4,7 +4,7 @@ import L from 'leaflet'
 import { mockSegments } from '../../data/mockSegments'
 import { mockAlerts } from '../../data/mockAlerts'
 import { mockCameras } from '../../data/mockCameras'
-import { useAppStore } from '../../store/useAppStore'
+import { useStore } from '../../store'
 import { SegmentPolylines } from './SegmentPolylines'
 import { AlertMarkers } from './AlertMarkers'
 import type { Camera } from '../../types'
@@ -134,7 +134,7 @@ const AlertLegend: React.FC = () => (
 
 // Camera markers component
 const CameraMarkers: React.FC<{ cameras: Camera[] }> = ({ cameras }) => {
-  const { setPanelContent } = useAppStore();
+  const setSelectedItem = useStore((s) => s.setSelectedItem);
   const icon = createCameraIcon();
 
   return (
@@ -145,7 +145,7 @@ const CameraMarkers: React.FC<{ cameras: Camera[] }> = ({ cameras }) => {
           position={cam.position}
           icon={icon}
           eventHandlers={{
-            click: () => setPanelContent({ type: 'camera', data: cam }),
+            click: () => setSelectedItem({ type: 'camera', id: cam.id }),
           }}
         >
           <Tooltip sticky offset={[12, 0]}>
@@ -170,19 +170,21 @@ const CameraMarkers: React.FC<{ cameras: Camera[] }> = ({ cameras }) => {
 // Close panel when clicking map background
 const MapClickHandler: React.FC = () => {
   const map = useMap();
-  const { closePanel } = useAppStore();
+  const clearSelectedItem = useStore((s) => s.clearSelectedItem);
 
   useEffect(() => {
-    const handler = () => closePanel();
+    const handler = () => clearSelectedItem();
     map.on('click', handler);
     return () => { map.off('click', handler); };
-  }, [map, closePanel]);
+  }, [map, clearSelectedItem]);
 
   return null;
 };
 
 export const TrafficMap: React.FC = () => {
-  const { filters } = useAppStore();
+  const showTraffic = useStore((s) => s.showTraffic);
+  const showAlerts = useStore((s) => s.showAlerts);
+  const showCameras = useStore((s) => s.showCameras);
 
   return (
     <div style={{ position: 'relative', flex: 1, overflow: 'hidden' }}>
@@ -204,18 +206,18 @@ export const TrafficMap: React.FC = () => {
         <MapClickHandler />
 
         {/* Traffic flow segments */}
-        {filters.trafficFlow && <SegmentPolylines segments={mockSegments} />}
+        {showTraffic && <SegmentPolylines segments={mockSegments} />}
 
         {/* Alert markers */}
-        {filters.alerts && <AlertMarkers alerts={mockAlerts} />}
+        {showAlerts && <AlertMarkers alerts={mockAlerts} />}
 
         {/* Camera markers */}
-        {filters.cameras && <CameraMarkers cameras={mockCameras} />}
+        {showCameras && <CameraMarkers cameras={mockCameras} />}
       </MapContainer>
 
       {/* Legend overlays (outside Leaflet to avoid z-index issues) */}
       <CongestionLegend />
-      {filters.alerts && <AlertLegend />}
+      {showAlerts && <AlertLegend />}
     </div>
   );
 };

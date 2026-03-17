@@ -1,14 +1,14 @@
 import React from 'react';
 import { X, Video, MapPin, RefreshCw } from 'lucide-react';
 import type { Camera } from '../../types';
-import { useAppStore } from '../../store/useAppStore';
+import { useStore } from '../../store';
 
 interface Props {
   camera: Camera;
 }
 
 export const CameraPanel: React.FC<Props> = ({ camera }) => {
-  const { closePanel } = useAppStore();
+  const closePanel = useStore((s) => s.clearSelectedItem);
 
   const now = new Date();
   const timeStr = now.toLocaleTimeString('en-US', {
