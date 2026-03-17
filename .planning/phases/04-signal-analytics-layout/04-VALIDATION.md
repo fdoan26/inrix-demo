@@ -1,0 +1,77 @@
+---
+phase: 4
+slug: signal-analytics-layout
+status: draft
+nyquist_compliant: false
+wave_0_complete: false
+created: 2026-03-17
+---
+
+# Phase 4 — Validation Strategy
+
+> Per-phase validation contract for feedback sampling during execution.
+
+---
+
+## Test Infrastructure
+
+| Property | Value |
+|----------|-------|
+| **Framework** | TypeScript build (tsc -b) + Vite build |
+| **Config file** | vite.config.ts |
+| **Quick run command** | `npm run build` |
+| **Full suite command** | `npm run build` |
+| **Estimated runtime** | ~5 seconds |
+
+---
+
+## Sampling Rate
+
+- **After every task commit:** Run `npm run build`
+- **After every plan wave:** Run `npm run build`
+- **Before `/gsd:verify-work`:** Full suite must be green
+- **Max feedback latency:** 10 seconds
+
+---
+
+## Per-Task Verification Map
+
+| Task ID | Plan | Wave | Requirement | Test Type | Automated Command | File Exists | Status |
+|---------|------|------|-------------|-----------|-------------------|-------------|--------|
+| 4-01-01 | 01 | 1 | DATA-04 | build | `npm run build` | ✅ | ⬜ pending |
+| 4-01-02 | 01 | 1 | SIG-01, SIG-02 | build | `npm run build` | ✅ | ⬜ pending |
+| 4-01-03 | 01 | 1 | SIG-03 | build | `npm run build` | ✅ | ⬜ pending |
+| 4-01-04 | 01 | 1 | SIG-04 | build | `npm run build` | ✅ | ⬜ pending |
+| 4-01-05 | 01 | 1 | SIG-05, SIG-06 | manual | visual inspection | N/A | ⬜ pending |
+
+*Status: ⬜ pending · ✅ green · ❌ red · ⚠️ flaky*
+
+---
+
+## Wave 0 Requirements
+
+*Existing infrastructure covers all phase requirements — Recharts already installed, TypeScript interfaces defined, mock data populated.*
+
+---
+
+## Manual-Only Verifications
+
+| Behavior | Requirement | Why Manual | Test Instructions |
+|----------|-------------|------------|-------------------|
+| Recharts bar chart renders with visible bars | SIG-03 | Chart height/visibility requires browser rendering | Open Signal Analytics, verify bars visible in chart |
+| LOS grade distribution shows A-F with colors | SIG-04 | Color rendering requires visual inspection | Verify each grade has distinct color from los-a through los-f |
+| Background map shows Austin TX | SIG-05 | Map tile loading requires browser | Verify map is centered on Austin (not LA) with light tiles |
+| Left KPI panel layout doesn't collapse | SIG-01 | Flexbox layout requires browser | Resize viewport, verify panel stays at 280px |
+
+---
+
+## Validation Sign-Off
+
+- [ ] All tasks have `<automated>` verify or Wave 0 dependencies
+- [ ] Sampling continuity: no 3 consecutive tasks without automated verify
+- [ ] Wave 0 covers all MISSING references
+- [ ] No watch-mode flags
+- [ ] Feedback latency < 10s
+- [ ] `nyquist_compliant: true` set in frontmatter
+
+**Approval:** pending
