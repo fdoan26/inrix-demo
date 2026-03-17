@@ -13,7 +13,7 @@ This roadmap builds a pixel-accurate investor demo of the INRIX IQ traffic intel
 Decimal phases appear between their surrounding integers in numeric order.
 
 - [x] **Phase 1: Foundation** - Scaffold the project with all dependencies and verify the dark app shell renders correctly (completed 2026-03-17)
-- [ ] **Phase 2: Mission Control Map** - Full-screen dark map with color-coded segments, alert pins, camera pins, filter bar, and legend overlays
+- [x] **Phase 2: Mission Control Map** - Full-screen dark map with color-coded segments, alert pins, camera pins, filter bar, and legend overlays (completed 2026-03-17)
 - [ ] **Phase 3: Mission Control Panels** - Slide-in detail panels for road segments and cameras with close animation
 - [ ] **Phase 4: Signal Analytics Layout** - Signal Analytics view with left KPI panel, control delay chart, LOS distribution, and background map
 - [ ] **Phase 5: Signal Analytics Tables** - Ranked issue tables for control delay and corridor problems with delta styling
@@ -49,7 +49,7 @@ Plans:
   4. 15+ camera pins appear as black markers with numbered cluster count badges
   5. Traffic Flow, Alerts, and Cameras toggles in the filter bar show and hide their respective map layers
   6. The congestion legend overlay is visible at the bottom-left of the map
-**Plans:** 1/2 plans executed
+**Plans:** 2/2 plans complete
 
 Plans:
 - [ ] 02-01-PLAN.md — Utility libs + MapView with all 3 layers + legends + MapController stub
@@ -108,7 +108,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | Phase | Plans Complete | Status | Completed |
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete    | 2026-03-17 |
-| 2. Mission Control Map | 1/2 | In Progress|  |
+| 2. Mission Control Map | 2/2 | Complete   | 2026-03-17 |
 | 3. Mission Control Panels | 0/TBD | Not started | - |
 | 4. Signal Analytics Layout | 0/TBD | Not started | - |
 | 5. Signal Analytics Tables | 0/TBD | Not started | - |

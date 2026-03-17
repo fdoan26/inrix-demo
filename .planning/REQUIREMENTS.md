@@ -27,11 +27,11 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Mission Control — Filter Bar
 
-- [ ] **FILTER-01**: Top filter bar renders below nav with Network/Corridors toggle (tab style)
-- [ ] **FILTER-02**: Map Version dropdown renders and shows current version label
-- [ ] **FILTER-03**: Traffic Flow toggle with active state; when active shows sub-filter options (congestion levels)
-- [ ] **FILTER-04**: Alerts toggle with count badge showing number of active alerts; toggles alert pins on/off
-- [ ] **FILTER-05**: Cameras toggle; toggles camera pins on/off
+- [x] **FILTER-01**: Top filter bar renders below nav with Network/Corridors toggle (tab style)
+- [x] **FILTER-02**: Map Version dropdown renders and shows current version label
+- [x] **FILTER-03**: Traffic Flow toggle with active state; when active shows sub-filter options (congestion levels)
+- [x] **FILTER-04**: Alerts toggle with count badge showing number of active alerts; toggles alert pins on/off
+- [x] **FILTER-05**: Cameras toggle; toggles camera pins on/off
 
 ### Mission Control — Detail Panels
 
@@ -101,11 +101,11 @@ Which phases cover which requirements. Updated during roadmap creation.
 | MAP-06 | Phase 3 | Pending |
 | MAP-07 | Phase 2 | Complete |
 | MAP-08 | Phase 2 | Complete |
-| FILTER-01 | Phase 2 | Pending |
-| FILTER-02 | Phase 2 | Pending |
-| FILTER-03 | Phase 2 | Pending |
-| FILTER-04 | Phase 2 | Pending |
-| FILTER-05 | Phase 2 | Pending |
+| FILTER-01 | Phase 2 | Complete |
+| FILTER-02 | Phase 2 | Complete |
+| FILTER-03 | Phase 2 | Complete |
+| FILTER-04 | Phase 2 | Complete |
+| FILTER-05 | Phase 2 | Complete |
 | PANEL-01 | Phase 3 | Pending |
 | PANEL-02 | Phase 3 | Pending |
 | PANEL-03 | Phase 3 | Pending |

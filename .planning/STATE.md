@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 02-mission-control-map/02-01-PLAN.md
-last_updated: "2026-03-17T17:06:17.436Z"
+stopped_at: Completed 02-mission-control-map/02-02-PLAN.md (awaiting Task 2 human verify)
+last_updated: "2026-03-17T17:09:33.592Z"
 last_activity: 2026-03-16 — Roadmap created; 34 v1 requirements mapped across 6 phases
 progress:
   total_phases: 6
-  completed_phases: 1
+  completed_phases: 2
   total_plans: 5
-  completed_plans: 4
+  completed_plans: 5
   percent: 0
 ---
 
@@ -54,6 +54,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 01-foundation P02 | 3 | 2 tasks | 8 files |
 | Phase 01-foundation P03 | 10 | 2 tasks | 12 files |
 | Phase 02-mission-control-map P01 | 2 | 2 tasks | 11 files |
+| Phase 02-mission-control-map P02 | 4 | 1 tasks | 8 files |
 
 ## Accumulated Context
 
@@ -79,6 +80,8 @@ Recent decisions affecting current work:
 - [Phase 02-mission-control-map]: Use 4 named react-leaflet Panes for polyline z-ordering — SVG paths ignore CSS z-index
 - [Phase 02-mission-control-map]: L.divIcon uses inline styles only — Tailwind JIT cannot scan template string class names
 - [Phase 02-mission-control-map]: Added alert type to SelectedItem union in uiSlice.ts to support AlertLayer click handler
+- [Phase 02-mission-control-map]: PillSwitch kept as inline helper in FilterBar.tsx — only used in one place, no shared component needed
+- [Phase 02-mission-control-map]: Alerts toggle uses orange #f57c00 when ON (matching CONTEXT.md screenshot); Traffic/Cameras use blue #2196f3
 
 ### Pending Todos
 
@@ -91,6 +94,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-17T17:06:17.434Z
-Stopped at: Completed 02-mission-control-map/02-01-PLAN.md
+Last session: 2026-03-17T17:09:28.276Z
+Stopped at: Completed 02-mission-control-map/02-02-PLAN.md (awaiting Task 2 human verify)
 Resume file: None
