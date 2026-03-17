@@ -16,8 +16,8 @@ export function SegmentLayer({ segments }: SegmentLayerProps) {
 
   if (!showTraffic) return null
 
-  // Freeways (frc 1) get thicker lines than arterials
-  const getWeight = (seg: Segment) => seg.frc === 1 ? 5 : seg.frc === 2 ? 3.5 : 2.5
+  // Freeways get bold lines; primary/secondary arterials get thinner lines
+  const getWeight = (seg: Segment) => seg.frc === 1 ? 7 : seg.frc === 2 ? 4 : 2.5
 
   return (
     <>
