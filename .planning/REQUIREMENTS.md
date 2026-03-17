@@ -20,8 +20,8 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **MAP-02**: 25+ road segment polylines rendered on the map, each colored by congestion level (green <25%, yellow 25-50%, orange 50-75%, red >75% delay)
 - [x] **MAP-03**: 20+ alert pins rendered on map, color-coded by type (crash=red, construction=orange, dangerous_slowdown=yellow, event=blue, road_closure=red, hazard=orange, congestion=yellow)
 - [x] **MAP-04**: 15+ camera pins rendered on map as black markers with numbered cluster count badges
-- [ ] **MAP-05**: Clicking a road segment opens the right-side detail panel with segment attributes
-- [ ] **MAP-06**: Clicking a camera pin opens the right-side detail panel with camera attributes
+- [x] **MAP-05**: Clicking a road segment opens the right-side detail panel with segment attributes
+- [x] **MAP-06**: Clicking a camera pin opens the right-side detail panel with camera attributes
 - [x] **MAP-07**: Congestion legend overlay panel renders at bottom-left of map
 - [x] **MAP-08**: Alerts legend overlay panel renders at bottom-left of map (when alerts visible)
 
@@ -35,9 +35,9 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Mission Control — Detail Panels
 
-- [ ] **PANEL-01**: Segment detail panel slides in from right showing: name, segment ID, type, FRC level, length, speed bucket, current avg travel time, current avg speed, free flow speed, historic avg speed
-- [ ] **PANEL-02**: Camera detail panel slides in from right showing: name, highway, direction, type, camera image placeholder
-- [ ] **PANEL-03**: Detail panels have close button to dismiss and slide out
+- [x] **PANEL-01**: Segment detail panel slides in from right showing: name, segment ID, type, FRC level, length, speed bucket, current avg travel time, current avg speed, free flow speed, historic avg speed
+- [x] **PANEL-02**: Camera detail panel slides in from right showing: name, highway, direction, type, camera image placeholder
+- [x] **PANEL-03**: Detail panels have close button to dismiss and slide out
 
 ### Signal Analytics — Layout
 
@@ -97,8 +97,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | MAP-02 | Phase 2 | Complete |
 | MAP-03 | Phase 2 | Complete |
 | MAP-04 | Phase 2 | Complete |
-| MAP-05 | Phase 3 | Pending |
-| MAP-06 | Phase 3 | Pending |
+| MAP-05 | Phase 3 | Complete |
+| MAP-06 | Phase 3 | Complete |
 | MAP-07 | Phase 2 | Complete |
 | MAP-08 | Phase 2 | Complete |
 | FILTER-01 | Phase 2 | Complete |
@@ -106,9 +106,9 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FILTER-03 | Phase 2 | Complete |
 | FILTER-04 | Phase 2 | Complete |
 | FILTER-05 | Phase 2 | Complete |
-| PANEL-01 | Phase 3 | Pending |
-| PANEL-02 | Phase 3 | Pending |
-| PANEL-03 | Phase 3 | Pending |
+| PANEL-01 | Phase 3 | Complete |
+| PANEL-02 | Phase 3 | Complete |
+| PANEL-03 | Phase 3 | Complete |
 | SIG-01 | Phase 4 | Pending |
 | SIG-02 | Phase 4 | Pending |
 | SIG-03 | Phase 4 | Pending |

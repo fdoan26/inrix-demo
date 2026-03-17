@@ -3,8 +3,8 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 03-mission-control-panels/03-01-PLAN.md Task 1 (awaiting Task 2 human verify)
-last_updated: "2026-03-17T18:24:02.952Z"
+stopped_at: Completed 03-mission-control-panels/03-01-PLAN.md
+last_updated: "2026-03-17T19:03:54.142Z"
 last_activity: 2026-03-16 — Roadmap created; 34 v1 requirements mapped across 6 phases
 progress:
   total_phases: 6
@@ -56,6 +56,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-mission-control-map P01 | 2 | 2 tasks | 11 files |
 | Phase 02-mission-control-map P02 | 4 | 1 tasks | 8 files |
 | Phase 03-mission-control-panels P01 | 8 | 1 tasks | 2 files |
+| Phase 03-mission-control-panels P01 | 8 | 2 tasks | 4 files |
 
 ## Accumulated Context
 
@@ -85,6 +86,8 @@ Recent decisions affecting current work:
 - [Phase 02-mission-control-map]: Alerts toggle uses orange #f57c00 when ON (matching CONTEXT.md screenshot); Traffic/Cameras use blue #2196f3
 - [Phase 03-mission-control-panels]: MissionControlView is the panel host — reads selectedItem from Zustand, resolves full object from static arrays, passes as prop to SegmentPanel/CameraPanel
 - [Phase 03-mission-control-panels]: Travel time in segments.ts is stored in seconds; divide by 60 with Math.round() at render time
+- [Phase 03-mission-control-panels]: Segment lookup uses live Overpass geometry feature IDs (not static segments.ts IDs) — SegmentLayer builds lookup from Overpass features keyed by OSM id
+- [Phase 03-mission-control-panels]: stopPropagation added to segment polyline and camera marker click handlers to prevent MapClickHandler from firing and clearing selection
 
 ### Pending Todos
 
@@ -97,6 +100,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-17T18:23:49.557Z
-Stopped at: Completed 03-mission-control-panels/03-01-PLAN.md Task 1 (awaiting Task 2 human verify)
+Last session: 2026-03-17T19:03:54.140Z
+Stopped at: Completed 03-mission-control-panels/03-01-PLAN.md
 Resume file: None
