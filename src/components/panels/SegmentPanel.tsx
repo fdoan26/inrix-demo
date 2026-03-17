@@ -143,8 +143,8 @@ export const SegmentPanel: React.FC<Props> = ({ segment }) => {
           <StatCard
             icon={<Clock size={14} />}
             label="Current Travel Time"
-            value={`${segment.travelTime} min`}
-            subValue={`Avg: ${segment.avgTravelTime} min`}
+            value={`${Math.round(segment.travelTime / 60)} min`}
+            subValue={`Avg: ${Math.round(segment.avgTravelTime / 60)} min`}
             valueColor={delayMultiplier > 1.5 ? '#ef4444' : delayMultiplier > 1.2 ? '#f97316' : '#ffffff'}
           />
           <StatCard
@@ -224,7 +224,7 @@ export const SegmentPanel: React.FC<Props> = ({ segment }) => {
               fontWeight: 700,
               color: delayMultiplier > 1.5 ? '#ef4444' : delayMultiplier > 1.2 ? '#f97316' : '#22c55e',
             }}>
-              +{Math.round((segment.travelTime - segment.avgTravelTime))} min
+              +{Math.round((segment.travelTime - segment.avgTravelTime) / 60)} min
             </div>
             <div style={{ fontSize: 11, color: '#4a6080' }}>
               {delayMultiplier.toFixed(1)}× normal
