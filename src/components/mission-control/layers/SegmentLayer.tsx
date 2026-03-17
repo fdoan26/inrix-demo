@@ -1,3 +1,4 @@
+import L from 'leaflet'
 import { Pane, Polyline } from 'react-leaflet'
 import type { Segment } from '../../../types'
 import { getCongestionColor, getCongestionPane } from '../../../lib/congestion'
@@ -35,7 +36,10 @@ export function SegmentLayer({ segments }: SegmentLayerProps) {
                   opacity: 0.88,
                 }}
                 eventHandlers={{
-                  click: () => setSelectedItem({ type: 'segment', id: seg.segmentId }),
+                  click: (e) => {
+                    L.DomEvent.stopPropagation(e)
+                    setSelectedItem({ type: 'segment', id: seg.segmentId })
+                  },
                 }}
               />
             ))}

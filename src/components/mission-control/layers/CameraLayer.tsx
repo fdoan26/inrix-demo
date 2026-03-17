@@ -1,3 +1,4 @@
+import L from 'leaflet'
 import { Marker } from 'react-leaflet'
 import { cameras } from '../../../data/cameras'
 import { createCameraIcon } from '../../../lib/cameraIcon'
@@ -17,7 +18,10 @@ export function CameraLayer() {
           position={camera.position}
           icon={createCameraIcon(camera.clusterCount)}
           eventHandlers={{
-            click: () => setSelectedItem({ type: 'camera', id: camera.id }),
+            click: (e) => {
+              L.DomEvent.stopPropagation(e)
+              setSelectedItem({ type: 'camera', id: camera.id })
+            },
           }}
         />
       ))}
