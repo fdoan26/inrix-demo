@@ -63,7 +63,10 @@ Plans:
   1. Clicking any road segment slides in the right panel showing: name, segment ID, type, FRC level, length, speed bucket, avg travel time, avg speed, free flow speed, and historic avg speed
   2. Clicking any camera pin slides in the right panel showing: name, highway, direction, type, and a camera image placeholder
   3. Clicking the close button slides the panel out and it disappears from view
-**Plans**: TBD
+**Plans:** 1 plan
+
+Plans:
+- [ ] 03-01-PLAN.md — Wire MissionControlView panel host + fix SegmentPanel travel time display
 
 ### Phase 4: Signal Analytics Layout
 **Goal**: Switching to Signal Analytics renders the full KPI layout — left summary panel, control delay bar chart, LOS grade distribution, and a light background map — all populated with Austin TX mock data
@@ -109,7 +112,7 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 |-------|----------------|--------|-----------|
 | 1. Foundation | 3/3 | Complete    | 2026-03-17 |
 | 2. Mission Control Map | 2/2 | Complete   | 2026-03-17 |
-| 3. Mission Control Panels | 0/TBD | Not started | - |
+| 3. Mission Control Panels | 0/1 | Not started | - |
 | 4. Signal Analytics Layout | 0/TBD | Not started | - |
 | 5. Signal Analytics Tables | 0/TBD | Not started | - |
 | 6. Polish | 0/TBD | Not started | - |
