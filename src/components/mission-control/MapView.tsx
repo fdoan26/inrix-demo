@@ -1,3 +1,4 @@
+import { useCallback, useState } from 'react'
 import L from 'leaflet'
 import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet'
 import { MapController } from './MapController'
@@ -6,6 +7,8 @@ import { AlertLayer } from './layers/AlertLayer'
 import { CameraLayer } from './layers/CameraLayer'
 import { CongestionLegend } from './legends/CongestionLegend'
 import { AlertsLegend } from './legends/AlertsLegend'
+import { SimPanel } from './SimPanel'
+import { useTrafficData } from '../../hooks/useTrafficData'
 import { useStore } from '../../store'
 
 // Fix Leaflet default icon missing images in bundled environments
@@ -18,17 +21,42 @@ L.Icon.Default.mergeOptions({
 
 function MapClickHandler() {
   const clearSelectedItem = useStore((s) => s.clearSelectedItem)
-  useMapEvents({
-    click: () => clearSelectedItem(),
-  })
+  useMapEvents({ click: () => clearSelectedItem() })
   return null
 }
 
 export function MapView() {
   const showAlerts = useStore((s) => s.showAlerts)
 
+  // Live OSM road data + time-of-day simulation
+  const { segments, loading, source, simulatedTime, roadCount } = useTrafficData()
+
+  // Force re-render when SimPanel changes speed/hour
+  const [, setRefreshTick] = useState(0)
+  const handleSimRefresh = useCallback(() => setRefreshTick((n) => n + 1), [])
+
   return (
     <div className="relative flex-1 overflow-hidden">
+      {/* Loading overlay */}
+      {loading && (
+        <div style={{
+          position: 'absolute', inset: 0, zIndex: 2000,
+          background: 'rgba(248,250,252,0.85)',
+          display: 'flex', alignItems: 'center', justifyContent: 'center',
+          flexDirection: 'column', gap: 10,
+        }}>
+          <div style={{
+            width: 32, height: 32, border: '3px solid #dde3ec',
+            borderTop: '3px solid #1a56db', borderRadius: '50%',
+            animation: 'spin 0.8s linear infinite',
+          }} />
+          <span style={{ fontSize: 13, color: '#5a6a88', fontWeight: 500 }}>
+            Loading LA road network…
+          </span>
+          <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
+        </div>
+      )}
+
       <MapContainer
         center={[34.05, -118.25]}
         zoom={11}
@@ -45,24 +73,27 @@ export function MapView() {
         />
         <MapController />
         <MapClickHandler />
-        <SegmentLayer />
+        <SegmentLayer segments={segments} />
         <AlertLayer />
         <CameraLayer />
       </MapContainer>
-      <div
-        style={{
-          position: 'absolute',
-          bottom: 16,
-          left: 16,
-          zIndex: 1000,
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 6,
-        }}
-      >
+
+      {/* Legend stack — bottom left */}
+      <div style={{
+        position: 'absolute', bottom: 16, left: 16, zIndex: 1000,
+        display: 'flex', flexDirection: 'column', gap: 6,
+      }}>
         <CongestionLegend />
         {showAlerts && <AlertsLegend visible={showAlerts} />}
       </div>
+
+      {/* Simulation control panel — bottom right */}
+      <SimPanel
+        simulatedTime={simulatedTime}
+        source={source}
+        roadCount={roadCount}
+        onRefresh={handleSimRefresh}
+      />
     </div>
   )
 }

@@ -1,72 +1,46 @@
 import { Pane, Polyline } from 'react-leaflet'
-import { segments } from '../../../data/segments'
+import type { Segment } from '../../../types'
 import { getCongestionColor, getCongestionPane } from '../../../lib/congestion'
 import { useStore } from '../../../store'
 
-export function SegmentLayer() {
+interface SegmentLayerProps {
+  segments: Segment[]
+}
+
+const PANES = ['segments-green', 'segments-yellow', 'segments-orange', 'segments-red'] as const
+const Z_INDEXES = { 'segments-green': 450, 'segments-yellow': 451, 'segments-orange': 452, 'segments-red': 453 }
+
+export function SegmentLayer({ segments }: SegmentLayerProps) {
   const showTraffic = useStore((s) => s.showTraffic)
   const setSelectedItem = useStore((s) => s.setSelectedItem)
 
   if (!showTraffic) return null
 
+  // Freeways (frc 1) get thicker lines than arterials
+  const getWeight = (seg: Segment) => seg.frc === 1 ? 5 : seg.frc === 2 ? 3.5 : 2.5
+
   return (
     <>
-      <Pane name="segments-green" style={{ zIndex: 450 }}>
-        {segments
-          .filter((seg) => getCongestionPane(seg.congestionLevel) === 'segments-green')
-          .map((seg) => (
-            <Polyline
-              key={seg.segmentId}
-              positions={seg.positions}
-              pathOptions={{ color: getCongestionColor(seg.congestionLevel), weight: 4, opacity: 0.85 }}
-              eventHandlers={{
-                click: () => setSelectedItem({ type: 'segment', id: seg.segmentId }),
-              }}
-            />
-          ))}
-      </Pane>
-      <Pane name="segments-yellow" style={{ zIndex: 451 }}>
-        {segments
-          .filter((seg) => getCongestionPane(seg.congestionLevel) === 'segments-yellow')
-          .map((seg) => (
-            <Polyline
-              key={seg.segmentId}
-              positions={seg.positions}
-              pathOptions={{ color: getCongestionColor(seg.congestionLevel), weight: 4, opacity: 0.85 }}
-              eventHandlers={{
-                click: () => setSelectedItem({ type: 'segment', id: seg.segmentId }),
-              }}
-            />
-          ))}
-      </Pane>
-      <Pane name="segments-orange" style={{ zIndex: 452 }}>
-        {segments
-          .filter((seg) => getCongestionPane(seg.congestionLevel) === 'segments-orange')
-          .map((seg) => (
-            <Polyline
-              key={seg.segmentId}
-              positions={seg.positions}
-              pathOptions={{ color: getCongestionColor(seg.congestionLevel), weight: 4, opacity: 0.85 }}
-              eventHandlers={{
-                click: () => setSelectedItem({ type: 'segment', id: seg.segmentId }),
-              }}
-            />
-          ))}
-      </Pane>
-      <Pane name="segments-red" style={{ zIndex: 453 }}>
-        {segments
-          .filter((seg) => getCongestionPane(seg.congestionLevel) === 'segments-red')
-          .map((seg) => (
-            <Polyline
-              key={seg.segmentId}
-              positions={seg.positions}
-              pathOptions={{ color: getCongestionColor(seg.congestionLevel), weight: 4, opacity: 0.85 }}
-              eventHandlers={{
-                click: () => setSelectedItem({ type: 'segment', id: seg.segmentId }),
-              }}
-            />
-          ))}
-      </Pane>
+      {PANES.map((paneName) => (
+        <Pane key={paneName} name={paneName} style={{ zIndex: Z_INDEXES[paneName] }}>
+          {segments
+            .filter((seg) => getCongestionPane(seg.congestionLevel) === paneName)
+            .map((seg) => (
+              <Polyline
+                key={seg.segmentId}
+                positions={seg.positions}
+                pathOptions={{
+                  color: getCongestionColor(seg.congestionLevel),
+                  weight: getWeight(seg),
+                  opacity: 0.88,
+                }}
+                eventHandlers={{
+                  click: () => setSelectedItem({ type: 'segment', id: seg.segmentId }),
+                }}
+              />
+            ))}
+        </Pane>
+      ))}
     </>
   )
 }
