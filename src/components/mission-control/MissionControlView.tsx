@@ -1,6 +1,6 @@
 import { useStore } from '../../store'
-import { segments } from '../../data/segments'
 import { cameras } from '../../data/cameras'
+import { useTrafficData } from '../../hooks/useTrafficData'
 import { SegmentPanel } from '../panels/SegmentPanel'
 import { CameraPanel } from '../panels/CameraPanel'
 import { FilterBar } from './FilterBar'
@@ -8,10 +8,12 @@ import { MapView } from './MapView'
 
 export function MissionControlView() {
   const selectedItem = useStore((s) => s.selectedItem)
+  // Use live segments (Overpass IDs like "osm-12345") for panel lookup
+  const { segments: liveSegments } = useTrafficData()
 
   const selectedSegment =
     selectedItem?.type === 'segment'
-      ? segments.find((s) => s.segmentId === selectedItem.id) ?? null
+      ? liveSegments.find((s) => s.segmentId === selectedItem.id) ?? null
       : null
 
   const selectedCamera =
