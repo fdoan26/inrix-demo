@@ -41,12 +41,12 @@ Requirements for initial release. Each maps to roadmap phases.
 
 ### Signal Analytics — Layout
 
-- [ ] **SIG-01**: Signal Analytics view renders with left KPI summary panel and center content area
-- [ ] **SIG-02**: Left panel shows summary KPIs: intersections count, approaches count, corridors count, cameras count
-- [ ] **SIG-03**: Left panel shows total control delay and avg control delay per vehicle metrics
-- [ ] **SIG-04**: Left panel shows bar chart of avg control delay over time (using Recharts)
-- [ ] **SIG-05**: Left panel shows intersection counts by LOS grade (A through F) with color coding
-- [ ] **SIG-06**: Background map renders in light/muted style behind Signal Analytics content
+- [x] **SIG-01**: Signal Analytics view renders with left KPI summary panel and center content area
+- [x] **SIG-02**: Left panel shows summary KPIs: intersections count, approaches count, corridors count, cameras count
+- [x] **SIG-03**: Left panel shows total control delay and avg control delay per vehicle metrics
+- [x] **SIG-04**: Left panel shows bar chart of avg control delay over time (using Recharts)
+- [x] **SIG-05**: Left panel shows intersection counts by LOS grade (A through F) with color coding
+- [x] **SIG-06**: Background map renders in light/muted style behind Signal Analytics content
 
 ### Signal Analytics — Ranked Tables
 
@@ -60,7 +60,7 @@ Requirements for initial release. Each maps to roadmap phases.
 - [x] **DATA-01**: 25+ road segments in LA area defined with: segmentId, name, lat/lng polyline coords array, currentSpeed, freeFlowSpeed, congestionLevel (0-100), travelTime, avgTravelTime, type, FRC level, length, speedBucket
 - [x] **DATA-02**: 20+ alerts defined with: id, type (crash/construction/dangerous_slowdown/road_closure/event/hazard/congestion), position [lat, lng], description, severity, timestamp
 - [x] **DATA-03**: 15+ cameras defined with: id, name (e.g. "CA-91 / East of Cherry Ave (E)"), position [lat, lng], highway, direction, type
-- [ ] **DATA-04**: Signal analytics mock data defined matching Austin TX screenshot values: KPI counts, control delay totals, LOS distribution, top 5 delay tables, top 3 corridor tables
+- [x] **DATA-04**: Signal analytics mock data defined matching Austin TX screenshot values: KPI counts, control delay totals, LOS distribution, top 5 delay tables, top 3 corridor tables
 
 ## v2 Requirements
 
@@ -109,12 +109,12 @@ Which phases cover which requirements. Updated during roadmap creation.
 | PANEL-01 | Phase 3 | Complete |
 | PANEL-02 | Phase 3 | Complete |
 | PANEL-03 | Phase 3 | Complete |
-| SIG-01 | Phase 4 | Pending |
-| SIG-02 | Phase 4 | Pending |
-| SIG-03 | Phase 4 | Pending |
-| SIG-04 | Phase 4 | Pending |
-| SIG-05 | Phase 4 | Pending |
-| SIG-06 | Phase 4 | Pending |
+| SIG-01 | Phase 4 | Complete |
+| SIG-02 | Phase 4 | Complete |
+| SIG-03 | Phase 4 | Complete |
+| SIG-04 | Phase 4 | Complete |
+| SIG-05 | Phase 4 | Complete |
+| SIG-06 | Phase 4 | Complete |
 | SIG-07 | Phase 5 | Pending |
 | SIG-08 | Phase 5 | Pending |
 | SIG-09 | Phase 5 | Pending |
@@ -122,7 +122,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | DATA-01 | Phase 2 | Complete |
 | DATA-02 | Phase 2 | Complete |
 | DATA-03 | Phase 2 | Complete |
-| DATA-04 | Phase 4 | Pending |
+| DATA-04 | Phase 4 | Complete |
 
 **Coverage:**
 - v1 requirements: 34 total

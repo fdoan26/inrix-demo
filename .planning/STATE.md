@@ -3,14 +3,14 @@ gsd_state_version: 1.0
 milestone: v1.0
 milestone_name: milestone
 status: planning
-stopped_at: Completed 03-mission-control-panels/03-01-PLAN.md
-last_updated: "2026-03-17T19:11:29.301Z"
+stopped_at: Completed 04-signal-analytics-layout/04-01-PLAN.md
+last_updated: "2026-03-17T19:26:48.219Z"
 last_activity: 2026-03-16 — Roadmap created; 34 v1 requirements mapped across 6 phases
 progress:
   total_phases: 6
-  completed_phases: 3
-  total_plans: 6
-  completed_plans: 6
+  completed_phases: 4
+  total_plans: 7
+  completed_plans: 7
   percent: 0
 ---
 
@@ -57,6 +57,7 @@ Progress: [░░░░░░░░░░] 0%
 | Phase 02-mission-control-map P02 | 4 | 1 tasks | 8 files |
 | Phase 03-mission-control-panels P01 | 8 | 1 tasks | 2 files |
 | Phase 03-mission-control-panels P01 | 8 | 2 tasks | 4 files |
+| Phase 04-signal-analytics-layout P01 | 2 | 2 tasks | 3 files |
 
 ## Accumulated Context
 
@@ -88,6 +89,9 @@ Recent decisions affecting current work:
 - [Phase 03-mission-control-panels]: Travel time in segments.ts is stored in seconds; divide by 60 with Math.round() at render time
 - [Phase 03-mission-control-panels]: Segment lookup uses live Overpass geometry feature IDs (not static segments.ts IDs) — SegmentLayer builds lookup from Overpass features keyed by OSM id
 - [Phase 03-mission-control-panels]: stopPropagation added to segment polyline and camera marker click handlers to prevent MapClickHandler from firing and clearing selection
+- [Phase 04-signal-analytics-layout]: SignalMap does not reuse MapView.tsx — MapView is LA-centered and wired to Zustand filter state; SignalMap is a dumb, non-interactive Austin TX tile backdrop
+- [Phase 04-signal-analytics-layout]: KpiPanel is fully self-contained — imports signalData directly, no props required
+- [Phase 04-signal-analytics-layout]: SignalAnalyticsView is a pure layout shell with no data imports — data ownership stays in KpiPanel
 
 ### Pending Todos
 
@@ -100,6 +104,6 @@ None yet.
 
 ## Session Continuity
 
-Last session: 2026-03-17T19:03:54.140Z
-Stopped at: Completed 03-mission-control-panels/03-01-PLAN.md
+Last session: 2026-03-17T19:26:48.217Z
+Stopped at: Completed 04-signal-analytics-layout/04-01-PLAN.md
 Resume file: None
