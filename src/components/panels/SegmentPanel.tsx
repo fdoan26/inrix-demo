@@ -232,9 +232,25 @@ export const SegmentPanel: React.FC<Props> = ({ segment }) => {
           </div>
         </div>
 
-        {/* Segment ID */}
-        <div style={{ fontSize: 10, color: '#2a4a6a', textAlign: 'center', marginTop: 4 }}>
-          Segment ID: {segment.segmentId}
+        {/* Segment metadata */}
+        <div style={{
+          background: '#0a1628',
+          border: '1px solid #1e3a5f',
+          borderRadius: 8,
+          padding: '10px 14px',
+        }}>
+          {[
+            { label: 'Type',         value: segment.type },
+            { label: 'FRC Level',    value: `FRC ${segment.frc}` },
+            { label: 'Length',       value: `${segment.lengthMiles.toFixed(2)} mi` },
+            { label: 'Speed Bucket', value: `Bucket ${segment.speedBucket}` },
+            { label: 'Segment ID',   value: segment.segmentId },
+          ].map(({ label, value }) => (
+            <div key={label} style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 4 }}>
+              <span style={{ fontSize: 10, color: '#4a6080' }}>{label}</span>
+              <span style={{ fontSize: 10, color: '#8ca0bc', fontWeight: 500 }}>{value}</span>
+            </div>
+          ))}
         </div>
       </div>
     </div>
