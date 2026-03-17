@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Download, SlidersHorizontal, ChevronDown } from 'lucide-react'
 import { IntersectionMap } from './IntersectionMap'
+import { IntersectionPanel } from './IntersectionPanel'
 
 // ─── Mock LA intersection data ─────────────────────────────────────────────
 
@@ -21,16 +22,16 @@ interface Intersection {
 }
 
 const INTERSECTIONS: Intersection[] = [
-  { name: 'Wilshire Blvd & Western Ave',              id: '34.0636,-118.3097', pog: '72%', totalCount: 531, throughCount: 414, stopCount: 117, splitCount: 0, splitPct: '0%',    controlAvg: '6s',  avg: '18s', los: 'A', losColor: '#1b5e20', position: [34.0636, -118.3097] },
-  { name: 'Hollywood Blvd & Highland Ave',            id: '34.1019,-118.3388', pog: '46%', totalCount: 530, throughCount: 242, stopCount: 288, splitCount: 1, splitPct: '0.19%', controlAvg: '36s', avg: '51s', los: 'D', losColor: '#ff9800', position: [34.1019, -118.3388] },
-  { name: 'Santa Monica Blvd & La Brea Ave',          id: '34.0835,-118.3403', pog: '55%', totalCount: 528, throughCount: 289, stopCount: 239, splitCount: 0, splitPct: '0%',    controlAvg: '29s', avg: '43s', los: 'C', losColor: '#8bc34a', position: [34.0835, -118.3403] },
-  { name: 'Sunset Blvd & Vine St',                    id: '34.0983,-118.3267', pog: '38%', totalCount: 528, throughCount: 201, stopCount: 327, splitCount: 3, splitPct: '0.57%', controlAvg: '28s', avg: '42s', los: 'D', losColor: '#ff9800', position: [34.0983, -118.3267] },
-  { name: 'Venice Blvd & Lincoln Blvd',               id: '33.9999,-118.4494', pog: '66%', totalCount: 527, throughCount: 350, stopCount: 177, splitCount: 0, splitPct: '0%',    controlAvg: '9s',  avg: '21s', los: 'B', losColor: '#4caf50', position: [33.9999, -118.4494] },
-  { name: 'Olympic Blvd & Vermont Ave',               id: '34.0521,-118.2917', pog: '43%', totalCount: 525, throughCount: 224, stopCount: 301, splitCount: 6, splitPct: '1.14%', controlAvg: '39s', avg: '57s', los: 'E', losColor: '#f44336', position: [34.0521, -118.2917] },
-  { name: 'Pico Blvd & Fairfax Ave',                  id: '34.0358,-118.3613', pog: '61%', totalCount: 524, throughCount: 318, stopCount: 206, splitCount: 1, splitPct: '0.19%', controlAvg: '15s', avg: '29s', los: 'B', losColor: '#4caf50', position: [34.0358, -118.3613] },
-  { name: 'Melrose Ave & Highland Ave',               id: '34.0838,-118.3388', pog: '59%', totalCount: 523, throughCount: 307, stopCount: 216, splitCount: 0, splitPct: '0%',    controlAvg: '19s', avg: '33s', los: 'C', losColor: '#8bc34a', position: [34.0838, -118.3388] },
-  { name: 'Crenshaw Blvd & MLK Jr Blvd',             id: '33.9919,-118.3387', pog: '56%', totalCount: 522, throughCount: 290, stopCount: 232, splitCount: 5, splitPct: '0.96%', controlAvg: '23s', avg: '37s', los: 'C', losColor: '#8bc34a', position: [33.9919, -118.3387] },
-  { name: 'Figueroa St & Adams Blvd',                 id: '34.0183,-118.2783', pog: '34%', totalCount: 519, throughCount: 178, stopCount: 341, splitCount: 2, splitPct: '0.38%', controlAvg: '44s', avg: '62s', los: 'F', losColor: '#b71c1c', position: [34.0183, -118.2783] },
+  { name: 'Wilshire Blvd & Western Ave',   id: 'wil-west',   pog: '72%', totalCount: 531, throughCount: 414, stopCount: 117, splitCount: 0, splitPct: '0%',    controlAvg: '6s',  avg: '18s', los: 'A', losColor: '#1b5e20', position: [34.0573, -118.3091] },
+  { name: 'Hollywood Blvd & Highland Ave', id: 'hwd-high',   pog: '46%', totalCount: 530, throughCount: 242, stopCount: 288, splitCount: 1, splitPct: '0.19%', controlAvg: '36s', avg: '51s', los: 'D', losColor: '#ff9800', position: [34.1016, -118.3387] },
+  { name: 'Santa Monica Blvd & La Brea',   id: 'sm-labrea',  pog: '55%', totalCount: 528, throughCount: 289, stopCount: 239, splitCount: 0, splitPct: '0%',    controlAvg: '29s', avg: '43s', los: 'C', losColor: '#8bc34a', position: [34.0831, -118.3618] },
+  { name: 'Sunset Blvd & Vine St',         id: 'sun-vine',   pog: '38%', totalCount: 528, throughCount: 201, stopCount: 327, splitCount: 3, splitPct: '0.57%', controlAvg: '28s', avg: '42s', los: 'D', losColor: '#ff9800', position: [34.0983, -118.3267] },
+  { name: 'Venice Blvd & Lincoln Blvd',    id: 'ven-linc',   pog: '66%', totalCount: 527, throughCount: 350, stopCount: 177, splitCount: 0, splitPct: '0%',    controlAvg: '9s',  avg: '21s', los: 'B', losColor: '#4caf50', position: [33.9997, -118.4492] },
+  { name: 'Olympic Blvd & Vermont Ave',    id: 'oly-verm',   pog: '43%', totalCount: 525, throughCount: 224, stopCount: 301, splitCount: 6, splitPct: '1.14%', controlAvg: '39s', avg: '57s', los: 'E', losColor: '#f44336', position: [34.0523, -118.2921] },
+  { name: 'Pico Blvd & Fairfax Ave',       id: 'pico-fair',  pog: '61%', totalCount: 524, throughCount: 318, stopCount: 206, splitCount: 1, splitPct: '0.19%', controlAvg: '15s', avg: '29s', los: 'B', losColor: '#4caf50', position: [34.0356, -118.3614] },
+  { name: 'Melrose Ave & Highland Ave',    id: 'mel-high',   pog: '59%', totalCount: 523, throughCount: 307, stopCount: 216, splitCount: 0, splitPct: '0%',    controlAvg: '19s', avg: '33s', los: 'C', losColor: '#8bc34a', position: [34.0836, -118.3387] },
+  { name: 'Crenshaw Blvd & MLK Jr Blvd',  id: 'cren-mlk',   pog: '56%', totalCount: 522, throughCount: 290, stopCount: 232, splitCount: 5, splitPct: '0.96%', controlAvg: '23s', avg: '37s', los: 'C', losColor: '#8bc34a', position: [33.9916, -118.3388] },
+  { name: 'Figueroa St & Adams Blvd',      id: 'fig-adams',  pog: '34%', totalCount: 519, throughCount: 178, stopCount: 341, splitCount: 2, splitPct: '0.38%', controlAvg: '44s', avg: '62s', los: 'F', losColor: '#b71c1c', position: [34.0183, -118.2784] },
 ]
 
 const COLUMNS = [
@@ -193,19 +194,32 @@ export function SignalAnalyticsView() {
         </table>
       </div>
 
-      {/* ── Map ── */}
-      <div style={{ flex: 1, position: 'relative', overflow: 'hidden', minHeight: 0 }}>
-        {/* Map Display label */}
-        <div style={{
-          position: 'absolute', top: 10, left: 10, zIndex: 1000,
-          background: 'rgba(255,255,255,0.95)', border: '1px solid #d0d7e2',
-          borderRadius: 4, padding: '4px 10px', fontSize: 11, color: '#2c3e5a',
-          display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer',
-          boxShadow: '0 1px 4px rgba(0,0,0,0.12)',
-        }}>
-          Map Display <ChevronDown size={11} />
+      {/* ── Map + Panel ── */}
+      <div style={{ flex: 1, display: 'flex', overflow: 'hidden', minHeight: 0 }}>
+        {/* Map */}
+        <div style={{ flex: 1, position: 'relative', overflow: 'hidden' }}>
+          <div style={{
+            position: 'absolute', top: 10, left: 10, zIndex: 1000,
+            background: 'rgba(255,255,255,0.95)', border: '1px solid #d0d7e2',
+            borderRadius: 4, padding: '4px 10px', fontSize: 11, color: '#2c3e5a',
+            display: 'flex', alignItems: 'center', gap: 4, cursor: 'pointer',
+            boxShadow: '0 1px 4px rgba(0,0,0,0.12)',
+          }}>
+            Map Display <ChevronDown size={11} />
+          </div>
+          <IntersectionMap intersections={INTERSECTIONS} selectedId={selectedId} onSelect={setSelectedId} />
         </div>
-        <IntersectionMap intersections={INTERSECTIONS} selectedId={selectedId} onSelect={setSelectedId} />
+
+        {/* Detail panel */}
+        {selectedId && (() => {
+          const ix = INTERSECTIONS.find((i) => i.id === selectedId)
+          return ix ? (
+            <IntersectionPanel
+              intersection={ix}
+              onClose={() => setSelectedId(null)}
+            />
+          ) : null
+        })()}
       </div>
     </div>
   )

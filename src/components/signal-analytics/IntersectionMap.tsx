@@ -1,5 +1,7 @@
 import L from 'leaflet'
-import { MapContainer, TileLayer, CircleMarker } from 'react-leaflet'
+import { useEffect, useState } from 'react'
+import { MapContainer, TileLayer, CircleMarker, Polyline } from 'react-leaflet'
+import { loadLARoads, type OsmWay } from '../../lib/overpassLoader'
 
 interface IntersectionPoint {
   id: string
@@ -14,7 +16,22 @@ interface Props {
   onSelect: (id: string | null) => void
 }
 
+const ROAD_STYLES: Record<string, { color: string; weight: number; opacity: number }> = {
+  motorway:      { color: '#b0b8c8', weight: 3.5, opacity: 0.7 },
+  motorway_link: { color: '#b0b8c8', weight: 2,   opacity: 0.6 },
+  trunk:         { color: '#b0b8c8', weight: 3,   opacity: 0.65 },
+  trunk_link:    { color: '#b0b8c8', weight: 1.5, opacity: 0.55 },
+  primary:       { color: '#c8cdd8', weight: 1.5, opacity: 0.5 },
+  secondary:     { color: '#d4d8e0', weight: 1,   opacity: 0.4 },
+}
+
 export function IntersectionMap({ intersections, selectedId, onSelect }: Props) {
+  const [roads, setRoads] = useState<OsmWay[]>([])
+
+  useEffect(() => {
+    loadLARoads().then(setRoads).catch(() => {/* silent */})
+  }, [])
+
   return (
     <MapContainer
       center={[34.05, -118.30]}
@@ -28,6 +45,22 @@ export function IntersectionMap({ intersections, selectedId, onSelect }: Props) 
         subdomains="abcd"
         maxZoom={19}
       />
+
+      {/* Road geometry overlay */}
+      {roads.map((way) => {
+        const hw = way.tags.highway ?? 'secondary'
+        const style = ROAD_STYLES[hw] ?? ROAD_STYLES['secondary']
+        return (
+          <Polyline
+            key={way.id}
+            positions={way.geometry.map((n) => [n.lat, n.lon] as [number, number])}
+            pathOptions={{ color: style.color, weight: style.weight, opacity: style.opacity }}
+            interactive={false}
+          />
+        )
+      })}
+
+      {/* Intersection dots */}
       {intersections.map((pt) => {
         const isSelected = selectedId === pt.id
         return (
