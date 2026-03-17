@@ -37,7 +37,7 @@ export function MapView() {
         attributionControl={false}
       >
         <TileLayer
-          url="https://{s}.basemaps.cartocdn.com/dark_all/{z}/{x}/{y}{r}.png"
+          url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>'
           subdomains="abcd"
           maxZoom={19}
@@ -49,8 +49,20 @@ export function MapView() {
         <AlertLayer />
         <CameraLayer />
       </MapContainer>
-      <CongestionLegend />
-      {showAlerts && <AlertsLegend visible={showAlerts} />}
+      <div
+        style={{
+          position: 'absolute',
+          bottom: 16,
+          left: 16,
+          zIndex: 1000,
+          display: 'flex',
+          flexDirection: 'column',
+          gap: 6,
+        }}
+      >
+        <CongestionLegend />
+        {showAlerts && <AlertsLegend visible={showAlerts} />}
+      </div>
     </div>
   )
 }

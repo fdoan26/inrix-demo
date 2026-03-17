@@ -22,10 +22,6 @@ export function AlertsLegend({ visible }: AlertsLegendProps) {
   return (
     <div
       style={{
-        position: 'absolute',
-        bottom: 16,
-        left: 190,
-        zIndex: 1000,
         background: 'rgba(0,0,0,0.7)',
         borderRadius: 6,
         padding: '8px 10px',
