@@ -1,59 +1,84 @@
-import { ChevronRight, HelpCircle, RefreshCw, LayoutGrid } from 'lucide-react'
+import { useState } from 'react'
+import { ChevronDown, HelpCircle, RefreshCw, LayoutGrid } from 'lucide-react'
 import { useStore } from '../../store'
 
-const VIEW_LABELS = {
-  'mission-control': 'Mission Control',
-  'signal-analytics': 'Signal Analytics',
-} as const
+const VIEW_OPTIONS = [
+  { value: 'mission-control',  label: 'Mission Control' },
+  { value: 'signal-analytics', label: 'Signal Analytics' },
+] as const
 
 export function NavBar() {
-  const activeView = useStore((s) => s.activeView)
+  const activeView  = useStore((s) => s.activeView)
   const setActiveView = useStore((s) => s.setActiveView)
+  const [open, setOpen] = useState(false)
 
-  const toggleView = () => {
-    setActiveView(
-      activeView === 'mission-control' ? 'signal-analytics' : 'mission-control'
-    )
-  }
+  const activeLabel = VIEW_OPTIONS.find((v) => v.value === activeView)?.label ?? ''
 
   return (
     <nav
-      style={{ background: '#0d1f3c', height: 48, minHeight: 48 }}
-      className="flex items-center px-3 border-b border-[#1e3a5f] z-[900] select-none"
+      style={{ background: '#0d1f3c', height: 48, minHeight: 48, position: 'relative', zIndex: 900 }}
+      className="flex items-center px-3 border-b border-[#1e3a5f] select-none"
     >
-      {/* Collapse chevron */}
-      <button className="text-[#4a6080] hover:text-white p-1 mr-2">
-        <ChevronRight size={14} />
-      </button>
-
       {/* INRIX IQ Logo */}
-      <div className="flex items-center mr-3">
-        <span className="text-white font-bold text-sm tracking-wide">INRIX</span>
-        <span className="border border-white text-white text-[10px] px-0.5 ml-0.5 leading-tight font-normal">IQ</span>
+      <div style={{ display: 'flex', alignItems: 'center', marginRight: 16 }}>
+        <span style={{ color: '#fff', fontWeight: 700, fontSize: 14, letterSpacing: '0.04em' }}>INRIX</span>
+        <span style={{ border: '1px solid #fff', color: '#fff', fontSize: 9, padding: '0 3px', marginLeft: 3, lineHeight: '14px', fontWeight: 400 }}>IQ</span>
       </div>
 
-      {/* Module name — clickable toggle */}
-      <button
-        onClick={toggleView}
-        className="text-white text-sm font-normal hover:text-[#8ca0bc] transition-colors"
-      >
-        {VIEW_LABELS[activeView]}
-      </button>
+      {/* Module dropdown */}
+      <div style={{ position: 'relative' }}>
+        <button
+          onClick={() => setOpen((v) => !v)}
+          style={{
+            display: 'flex', alignItems: 'center', gap: 4,
+            color: '#fff', background: 'none', border: 'none',
+            cursor: 'pointer', fontSize: 14, fontWeight: 500, padding: '4px 0',
+          }}
+        >
+          {activeLabel}
+          <ChevronDown size={13} style={{ opacity: 0.75, marginTop: 1 }} />
+        </button>
 
-      {/* Spacer */}
-      <div className="flex-1" />
+        {open && (
+          <>
+            {/* Click-away backdrop */}
+            <div
+              style={{ position: 'fixed', inset: 0, zIndex: 998 }}
+              onClick={() => setOpen(false)}
+            />
+            <div style={{
+              position: 'absolute', top: 'calc(100% + 4px)', left: 0,
+              background: '#0d1f3c', border: '1px solid #1e3a5f',
+              borderRadius: 4, zIndex: 999, minWidth: 170,
+              boxShadow: '0 4px 16px rgba(0,0,0,0.5)',
+            }}>
+              {VIEW_OPTIONS.map((opt) => (
+                <button
+                  key={opt.value}
+                  onClick={() => { setActiveView(opt.value as typeof activeView); setOpen(false) }}
+                  style={{
+                    display: 'block', width: '100%', textAlign: 'left',
+                    padding: '9px 14px', fontSize: 13, cursor: 'pointer', border: 'none',
+                    color: activeView === opt.value ? '#fff' : '#8ca0bc',
+                    background: activeView === opt.value ? '#1e3a5f' : 'transparent',
+                    fontWeight: activeView === opt.value ? 600 : 400,
+                  }}
+                >
+                  {opt.label}
+                </button>
+              ))}
+            </div>
+          </>
+        )}
+      </div>
 
-      {/* Right icons — exactly 3 */}
-      <div className="flex items-center gap-2">
-        <button className="text-[#4a6080] hover:text-white p-1">
-          <HelpCircle size={16} strokeWidth={1.5} />
-        </button>
-        <button className="text-[#4a6080] hover:text-white p-1">
-          <RefreshCw size={16} strokeWidth={1.5} />
-        </button>
-        <button className="text-[#4a6080] hover:text-white p-1">
-          <LayoutGrid size={16} strokeWidth={1.5} />
-        </button>
+      <div style={{ flex: 1 }} />
+
+      {/* Right icons */}
+      <div style={{ display: 'flex', alignItems: 'center', gap: 4 }}>
+        <button style={{ color: '#4a6080', background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}><HelpCircle size={16} strokeWidth={1.5} /></button>
+        <button style={{ color: '#4a6080', background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}><RefreshCw size={16} strokeWidth={1.5} /></button>
+        <button style={{ color: '#4a6080', background: 'none', border: 'none', cursor: 'pointer', padding: 6 }}><LayoutGrid size={16} strokeWidth={1.5} /></button>
       </div>
     </nav>
   )
