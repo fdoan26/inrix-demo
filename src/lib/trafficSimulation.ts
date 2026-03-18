@@ -64,6 +64,7 @@ export function getSimulatedTimeLabel(): string {
 
 type CurvePoint = [number, number] // [hour, congestion 0-1]
 
+// Freeways: high congestion during peaks, stays noticeably heavy
 const FREEWAY_CURVE: CurvePoint[] = [
   [0,  0.05], [4,  0.04], [5,  0.10], [6,  0.28],
   [7,  0.72], [8,  0.88], [9,  0.62], [10, 0.45],
@@ -73,13 +74,24 @@ const FREEWAY_CURVE: CurvePoint[] = [
   [23, 0.13], [24, 0.05],
 ]
 
+// Primary arterials: moderate congestion, peaks around 55-60%
 const ARTERIAL_CURVE: CurvePoint[] = [
-  [0,  0.06], [4,  0.05], [5,  0.12], [6,  0.30],
-  [7,  0.62], [8,  0.75], [9,  0.58], [10, 0.48],
-  [11, 0.50], [12, 0.55], [13, 0.52], [14, 0.54],
-  [15, 0.63], [16, 0.76], [17, 0.85], [18, 0.80],
-  [19, 0.68], [20, 0.55], [21, 0.40], [22, 0.28],
-  [23, 0.18], [24, 0.08],
+  [0,  0.04], [4,  0.03], [5,  0.08], [6,  0.18],
+  [7,  0.38], [8,  0.55], [9,  0.45], [10, 0.35],
+  [11, 0.36], [12, 0.40], [13, 0.38], [14, 0.40],
+  [15, 0.44], [16, 0.52], [17, 0.60], [18, 0.55],
+  [19, 0.44], [20, 0.34], [21, 0.24], [22, 0.16],
+  [23, 0.10], [24, 0.05],
+]
+
+// Secondary/local streets: light congestion, mostly green outside peaks
+const LOCAL_CURVE: CurvePoint[] = [
+  [0,  0.03], [4,  0.02], [5,  0.05], [6,  0.10],
+  [7,  0.20], [8,  0.32], [9,  0.28], [10, 0.22],
+  [11, 0.22], [12, 0.26], [13, 0.24], [14, 0.25],
+  [15, 0.28], [16, 0.34], [17, 0.40], [18, 0.36],
+  [19, 0.28], [20, 0.20], [21, 0.14], [22, 0.09],
+  [23, 0.06], [24, 0.03],
 ]
 
 /** Linear interpolation along a congestion curve for a given hour. */
@@ -122,12 +134,22 @@ export type RoadClass = 'motorway' | 'trunk' | 'primary' | 'secondary' | 'other'
  */
 export function getCongestionLevel(segmentId: string, roadClass: RoadClass): number {
   const hour = getSimulatedHour()
-  const curve = roadClass === 'motorway' || roadClass === 'trunk'
-    ? FREEWAY_CURVE
-    : ARTERIAL_CURVE
+
+  // Pick curve and noise range by road class
+  let curve: CurvePoint[]
+  let noiseRange: number
+  switch (roadClass) {
+    case 'motorway':
+    case 'trunk':
+      curve = FREEWAY_CURVE;  noiseRange = 0.10; break
+    case 'primary':
+      curve = ARTERIAL_CURVE; noiseRange = 0.14; break
+    default:
+      curve = LOCAL_CURVE;    noiseRange = 0.18; break
+  }
 
   const base = lerpCurve(curve, hour)
-  const noise = segmentNoise(segmentId) * 0.12 // ±12% variation per segment
+  const noise = segmentNoise(segmentId) * noiseRange
   const raw = Math.max(0, Math.min(1, base + noise))
   return Math.round(raw * 100)
 }
