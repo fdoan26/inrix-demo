@@ -119,3 +119,13 @@ Phases execute in numeric order: 1 → 2 → 3 → 4 → 5 → 6
 | 4. Signal Analytics Layout | 1/1 | Complete    | 2026-03-17 |
 | 5. Signal Analytics Tables | 0/TBD | Not started | - |
 | 6. Polish | 0/TBD | Not started | - |
+
+### Phase 7: Forecasting
+
+**Goal:** [To be planned]
+**Requirements**: TBD
+**Depends on:** Phase 6
+**Plans:** 0 plans
+
+Plans:
+- [ ] TBD (run /gsd:plan-phase 7 to break down)

@@ -3,8 +3,10 @@ import { ChevronDown, HelpCircle, RefreshCw, LayoutGrid } from 'lucide-react'
 import { useStore } from '../../store'
 
 const VIEW_OPTIONS = [
-  { value: 'mission-control',  label: 'Mission Control' },
-  { value: 'signal-analytics', label: 'Signal Analytics' },
+  { value: 'mission-control',   label: 'Mission Control' },
+  { value: 'signal-analytics',  label: 'Signal Analytics' },
+  { value: 'roadway-analytics', label: 'Roadway Analytics' },
+  { value: 'forecasting',       label: 'Forecasting' },
 ] as const
 
 export function NavBar() {

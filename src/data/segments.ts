@@ -10,8 +10,8 @@ export const segments: Segment[] = [
       [34.0217,-118.4437],[34.0302,-118.4460],[34.0390,-118.4500],[34.0478,-118.4539],
       [34.0560,-118.4572],[34.0641,-118.4600],[34.0720,-118.4617],[34.0810,-118.4620],
     ],
-    currentSpeed: 12, freeFlowSpeed: 65, historicAvgSpeed: 42, congestionLevel: 92,
-    travelTime: 1680, avgTravelTime: 660, type: 'XD', frc: 1, lengthMiles: 4.8, speedBucket: 1,
+    currentSpeed: 11, freeFlowSpeed: 63, historicAvgSpeed: 41, congestionLevel: 93,
+    travelTime: 1703, avgTravelTime: 647, type: 'XD', frc: 1, lengthMiles: 4.83, speedBucket: 1,
   },
   // I-405 SB – Sepulveda Pass
   {
@@ -20,8 +20,8 @@ export const segments: Segment[] = [
       [34.0810,-118.4628],[34.0722,-118.4622],[34.0642,-118.4608],[34.0562,-118.4580],
       [34.0480,-118.4548],[34.0392,-118.4508],[34.0304,-118.4468],[34.0218,-118.4445],
     ],
-    currentSpeed: 28, freeFlowSpeed: 65, historicAvgSpeed: 45, congestionLevel: 60,
-    travelTime: 840, avgTravelTime: 540, type: 'XD', frc: 1, lengthMiles: 4.8, speedBucket: 3,
+    currentSpeed: 27, freeFlowSpeed: 63, historicAvgSpeed: 44, congestionLevel: 57,
+    travelTime: 823, avgTravelTime: 531, type: 'XD', frc: 1, lengthMiles: 4.83, speedBucket: 3,
   },
   // I-405 NB – LAX to Culver City
   {
@@ -30,8 +30,8 @@ export const segments: Segment[] = [
       [33.9523,-118.3900],[33.9644,-118.3885],[33.9770,-118.3868],[33.9896,-118.3852],
       [34.0015,-118.3835],[34.0130,-118.3820],[34.0218,-118.4000],
     ],
-    currentSpeed: 14, freeFlowSpeed: 65, historicAvgSpeed: 38, congestionLevel: 87,
-    travelTime: 1500, avgTravelTime: 600, type: 'XD', frc: 1, lengthMiles: 5.1, speedBucket: 1,
+    currentSpeed: 13, freeFlowSpeed: 63, historicAvgSpeed: 37, congestionLevel: 88,
+    travelTime: 1487, avgTravelTime: 583, type: 'XD', frc: 1, lengthMiles: 5.17, speedBucket: 1,
   },
   // I-405 SB – Culver City to LAX
   {
@@ -40,8 +40,8 @@ export const segments: Segment[] = [
       [34.0218,-118.4005],[34.0132,-118.3828],[34.0016,-118.3843],[33.9897,-118.3860],
       [33.9771,-118.3875],[33.9645,-118.3892],[33.9523,-118.3907],
     ],
-    currentSpeed: 40, freeFlowSpeed: 65, historicAvgSpeed: 44, congestionLevel: 42,
-    travelTime: 480, avgTravelTime: 420, type: 'XD', frc: 1, lengthMiles: 5.1, speedBucket: 3,
+    currentSpeed: 39, freeFlowSpeed: 63, historicAvgSpeed: 43, congestionLevel: 39,
+    travelTime: 473, avgTravelTime: 408, type: 'XD', frc: 1, lengthMiles: 5.17, speedBucket: 3,
   },
 
   // I-10 WB – Downtown to West LA
@@ -52,8 +52,8 @@ export const segments: Segment[] = [
       [34.0390,-118.3300],[34.0350,-118.3510],[34.0315,-118.3720],[34.0285,-118.3930],
       [34.0255,-118.4130],[34.0230,-118.4340],[34.0217,-118.4440],
     ],
-    currentSpeed: 8, freeFlowSpeed: 65, historicAvgSpeed: 38, congestionLevel: 96,
-    travelTime: 2880, avgTravelTime: 840, type: 'XD', frc: 1, lengthMiles: 12.8, speedBucket: 1,
+    currentSpeed: 7, freeFlowSpeed: 64, historicAvgSpeed: 37, congestionLevel: 97,
+    travelTime: 2917, avgTravelTime: 836, type: 'XD', frc: 1, lengthMiles: 12.76, speedBucket: 1,
   },
   // I-10 EB – West LA to Downtown
   {
@@ -63,8 +63,8 @@ export const segments: Segment[] = [
       [34.0318,-118.3722],[34.0355,-118.3512],[34.0394,-118.3302],[34.0434,-118.3113],
       [34.0455,-118.2923],[34.0479,-118.2723],[34.0499,-118.2533],
     ],
-    currentSpeed: 55, freeFlowSpeed: 65, historicAvgSpeed: 52, congestionLevel: 18,
-    travelTime: 720, avgTravelTime: 900, type: 'XD', frc: 1, lengthMiles: 12.8, speedBucket: 4,
+    currentSpeed: 54, freeFlowSpeed: 64, historicAvgSpeed: 51, congestionLevel: 16,
+    travelTime: 708, avgTravelTime: 887, type: 'XD', frc: 1, lengthMiles: 12.76, speedBucket: 4,
   },
 
   // US-101 NB – Downtown to Hollywood
@@ -75,8 +75,8 @@ export const segments: Segment[] = [
       [34.0720,-118.2790],[34.0763,-118.2889],[34.0815,-118.2990],[34.0870,-118.3089],
       [34.0940,-118.3198],[34.0998,-118.3302],[34.1060,-118.3399],[34.1125,-118.3495],
     ],
-    currentSpeed: 32, freeFlowSpeed: 65, historicAvgSpeed: 42, congestionLevel: 62,
-    travelTime: 900, avgTravelTime: 540, type: 'XD', frc: 1, lengthMiles: 6.5, speedBucket: 2,
+    currentSpeed: 31, freeFlowSpeed: 64, historicAvgSpeed: 41, congestionLevel: 63,
+    travelTime: 914, avgTravelTime: 547, type: 'XD', frc: 1, lengthMiles: 6.53, speedBucket: 2,
   },
   // US-101 SB – Hollywood to Downtown
   {
@@ -86,8 +86,8 @@ export const segments: Segment[] = [
       [34.0872,-118.3092],[34.0817,-118.2993],[34.0765,-118.2892],[34.0722,-118.2793],
       [34.0684,-118.2702],[34.0638,-118.2595],[34.0590,-118.2496],[34.0544,-118.2422],
     ],
-    currentSpeed: 22, freeFlowSpeed: 65, historicAvgSpeed: 40, congestionLevel: 75,
-    travelTime: 1080, avgTravelTime: 540, type: 'XD', frc: 1, lengthMiles: 6.5, speedBucket: 2,
+    currentSpeed: 21, freeFlowSpeed: 64, historicAvgSpeed: 39, congestionLevel: 76,
+    travelTime: 1097, avgTravelTime: 553, type: 'XD', frc: 1, lengthMiles: 6.53, speedBucket: 2,
   },
 
   // US-101 NB – Hollywood to San Fernando Valley (Cahuenga Pass)
@@ -97,8 +97,8 @@ export const segments: Segment[] = [
       [34.1125,-118.3495],[34.1190,-118.3570],[34.1262,-118.3650],[34.1332,-118.3712],
       [34.1400,-118.3760],[34.1468,-118.3810],[34.1535,-118.3864],[34.1620,-118.3960],
     ],
-    currentSpeed: 48, freeFlowSpeed: 65, historicAvgSpeed: 52, congestionLevel: 28,
-    travelTime: 420, avgTravelTime: 360, type: 'XD', frc: 1, lengthMiles: 3.6, speedBucket: 3,
+    currentSpeed: 47, freeFlowSpeed: 63, historicAvgSpeed: 51, congestionLevel: 27,
+    travelTime: 413, avgTravelTime: 351, type: 'XD', frc: 1, lengthMiles: 3.62, speedBucket: 3,
   },
 
   // I-110 NB – Harbor Freeway
@@ -109,8 +109,8 @@ export const segments: Segment[] = [
       [33.9905,-118.2703],[34.0028,-118.2688],[34.0155,-118.2678],[34.0278,-118.2670],
       [34.0400,-118.2658],[34.0490,-118.2620],[34.0542,-118.2540],
     ],
-    currentSpeed: 47, freeFlowSpeed: 65, historicAvgSpeed: 50, congestionLevel: 30,
-    travelTime: 480, avgTravelTime: 420, type: 'XD', frc: 1, lengthMiles: 7.8, speedBucket: 3,
+    currentSpeed: 46, freeFlowSpeed: 63, historicAvgSpeed: 49, congestionLevel: 31,
+    travelTime: 491, avgTravelTime: 427, type: 'XD', frc: 1, lengthMiles: 7.84, speedBucket: 3,
   },
   // I-110 SB – Harbor Freeway
   {
@@ -120,8 +120,8 @@ export const segments: Segment[] = [
       [34.0155,-118.2683],[34.0028,-118.2693],[33.9905,-118.2708],[33.9778,-118.2723],
       [33.9652,-118.2743],[33.9530,-118.2767],[33.9408,-118.2776],
     ],
-    currentSpeed: 18, freeFlowSpeed: 65, historicAvgSpeed: 44, congestionLevel: 82,
-    travelTime: 1320, avgTravelTime: 600, type: 'XD', frc: 1, lengthMiles: 7.8, speedBucket: 2,
+    currentSpeed: 17, freeFlowSpeed: 63, historicAvgSpeed: 43, congestionLevel: 83,
+    travelTime: 1338, avgTravelTime: 607, type: 'XD', frc: 1, lengthMiles: 7.84, speedBucket: 2,
   },
 
   // I-5 NB – Golden State Fwy
@@ -131,8 +131,8 @@ export const segments: Segment[] = [
       [34.0570,-118.2370],[34.0698,-118.2340],[34.0832,-118.2318],[34.0968,-118.2295],
       [34.1102,-118.2278],[34.1238,-118.2262],[34.1374,-118.2255],[34.1510,-118.2248],
     ],
-    currentSpeed: 44, freeFlowSpeed: 65, historicAvgSpeed: 50, congestionLevel: 38,
-    travelTime: 480, avgTravelTime: 420, type: 'XD', frc: 1, lengthMiles: 6.8, speedBucket: 3,
+    currentSpeed: 43, freeFlowSpeed: 64, historicAvgSpeed: 49, congestionLevel: 37,
+    travelTime: 469, avgTravelTime: 411, type: 'XD', frc: 1, lengthMiles: 6.82, speedBucket: 3,
   },
   // I-5 SB – Downtown to South LA
   {
@@ -141,8 +141,8 @@ export const segments: Segment[] = [
       [34.0568,-118.2373],[34.0440,-118.2295],[34.0312,-118.2228],[34.0185,-118.2168],
       [34.0058,-118.2118],[33.9932,-118.2070],[33.9806,-118.2022],
     ],
-    currentSpeed: 38, freeFlowSpeed: 65, historicAvgSpeed: 48, congestionLevel: 42,
-    travelTime: 480, avgTravelTime: 420, type: 'XD', frc: 1, lengthMiles: 5.5, speedBucket: 3,
+    currentSpeed: 37, freeFlowSpeed: 63, historicAvgSpeed: 47, congestionLevel: 41,
+    travelTime: 494, avgTravelTime: 416, type: 'XD', frc: 1, lengthMiles: 5.48, speedBucket: 3,
   },
 
   // SR-134 EB – Ventura Fwy
@@ -152,8 +152,8 @@ export const segments: Segment[] = [
       [34.1622,-118.3962],[34.1610,-118.3720],[34.1598,-118.3480],[34.1588,-118.3240],
       [34.1578,-118.3000],[34.1570,-118.2760],[34.1565,-118.2520],[34.1562,-118.2280],
     ],
-    currentSpeed: 30, freeFlowSpeed: 65, historicAvgSpeed: 47, congestionLevel: 68,
-    travelTime: 720, avgTravelTime: 480, type: 'XD', frc: 1, lengthMiles: 8.1, speedBucket: 2,
+    currentSpeed: 29, freeFlowSpeed: 64, historicAvgSpeed: 46, congestionLevel: 69,
+    travelTime: 733, avgTravelTime: 488, type: 'XD', frc: 1, lengthMiles: 8.13, speedBucket: 2,
   },
 
   // I-105 WB – Century Freeway
@@ -163,8 +163,8 @@ export const segments: Segment[] = [
       [33.9268,-118.1980],[33.9272,-118.2240],[33.9276,-118.2500],[33.9280,-118.2762],
       [33.9285,-118.3024],[33.9290,-118.3285],[33.9295,-118.3548],[33.9300,-118.3812],
     ],
-    currentSpeed: 58, freeFlowSpeed: 65, historicAvgSpeed: 56, congestionLevel: 15,
-    travelTime: 480, avgTravelTime: 540, type: 'XD', frc: 1, lengthMiles: 10.8, speedBucket: 4,
+    currentSpeed: 57, freeFlowSpeed: 63, historicAvgSpeed: 55, congestionLevel: 13,
+    travelTime: 476, avgTravelTime: 536, type: 'XD', frc: 1, lengthMiles: 10.76, speedBucket: 4,
   },
 
   // SR-91 EB – Artesia Fwy
@@ -174,8 +174,8 @@ export const segments: Segment[] = [
       [33.8912,-118.2532],[33.8915,-118.2260],[33.8918,-118.1988],[33.8921,-118.1716],
       [33.8924,-118.1444],[33.8927,-118.1172],
     ],
-    currentSpeed: 20, freeFlowSpeed: 65, historicAvgSpeed: 43, congestionLevel: 82,
-    travelTime: 1200, avgTravelTime: 540, type: 'XD', frc: 1, lengthMiles: 8.1, speedBucket: 2,
+    currentSpeed: 19, freeFlowSpeed: 64, historicAvgSpeed: 42, congestionLevel: 83,
+    travelTime: 1219, avgTravelTime: 553, type: 'XD', frc: 1, lengthMiles: 8.13, speedBucket: 2,
   },
 
   // I-710 NB – Long Beach Fwy
@@ -208,8 +208,8 @@ export const segments: Segment[] = [
       [34.1562,-118.2278],[34.1555,-118.1990],[34.1548,-118.1703],[34.1542,-118.1415],
       [34.1536,-118.1128],[34.1530,-118.0840],
     ],
-    currentSpeed: 56, freeFlowSpeed: 65, historicAvgSpeed: 57, congestionLevel: 20,
-    travelTime: 420, avgTravelTime: 420, type: 'XD', frc: 1, lengthMiles: 8.5, speedBucket: 4,
+    currentSpeed: 55, freeFlowSpeed: 63, historicAvgSpeed: 56, congestionLevel: 18,
+    travelTime: 417, avgTravelTime: 423, type: 'XD', frc: 1, lengthMiles: 8.47, speedBucket: 4,
   },
 
   // SR-110 NB – Pasadena Fwy
@@ -230,8 +230,8 @@ export const segments: Segment[] = [
       [34.1620,-118.3960],[34.1658,-118.4108],[34.1696,-118.4258],[34.1720,-118.4408],
       [34.1738,-118.4558],[34.1760,-118.4710],[34.1785,-118.4862],[34.1808,-118.5014],
     ],
-    currentSpeed: 53, freeFlowSpeed: 65, historicAvgSpeed: 52, congestionLevel: 22,
-    travelTime: 420, avgTravelTime: 420, type: 'XD', frc: 1, lengthMiles: 6.2, speedBucket: 4,
+    currentSpeed: 52, freeFlowSpeed: 63, historicAvgSpeed: 51, congestionLevel: 21,
+    travelTime: 431, avgTravelTime: 426, type: 'XD', frc: 1, lengthMiles: 6.24, speedBucket: 4,
   },
 
   // SR-60 EB – Pomona Fwy
@@ -241,8 +241,8 @@ export const segments: Segment[] = [
       [34.0445,-118.1780],[34.0440,-118.1530],[34.0435,-118.1280],[34.0430,-118.1030],
       [34.0425,-118.0780],[34.0420,-118.0530],
     ],
-    currentSpeed: 41, freeFlowSpeed: 65, historicAvgSpeed: 48, congestionLevel: 35,
-    travelTime: 480, avgTravelTime: 420, type: 'XD', frc: 1, lengthMiles: 7.5, speedBucket: 3,
+    currentSpeed: 40, freeFlowSpeed: 63, historicAvgSpeed: 47, congestionLevel: 34,
+    travelTime: 471, avgTravelTime: 413, type: 'XD', frc: 1, lengthMiles: 7.53, speedBucket: 3,
   },
 
   // ─── MAJOR ARTERIALS (E–W) ─────────────────────────────────────────────────

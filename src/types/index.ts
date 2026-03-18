@@ -1,4 +1,4 @@
-export type ActiveView = 'mission-control' | 'signal-analytics'
+export type ActiveView = 'mission-control' | 'signal-analytics' | 'roadway-analytics' | 'forecasting'
 
 export interface Segment {
   segmentId: string

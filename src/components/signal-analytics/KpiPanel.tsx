@@ -99,7 +99,8 @@ export function KpiPanel() {
                 tick={{ fontSize: 9, fill: '#6a7f9a' }}
                 tickLine={false}
                 axisLine={false}
-                domain={['auto', 'auto']}
+                domain={[0, 30]}
+                ticks={[0, 10, 20, 30]}
               />
               <Bar dataKey="value" fill="#1a6eb5" radius={[2, 2, 0, 0]} />
               <Tooltip

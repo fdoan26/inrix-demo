@@ -1,10 +1,11 @@
+import { memo } from 'react'
 import L from 'leaflet'
 import { Marker } from 'react-leaflet'
 import { cameras } from '../../../data/cameras'
 import { createCameraIcon } from '../../../lib/cameraIcon'
 import { useStore } from '../../../store'
 
-export function CameraLayer() {
+export const CameraLayer = memo(function CameraLayer() {
   const showCameras = useStore((s) => s.showCameras)
   const setSelectedItem = useStore((s) => s.setSelectedItem)
 
@@ -27,4 +28,4 @@ export function CameraLayer() {
       ))}
     </>
   )
-}
+})

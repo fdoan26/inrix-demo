@@ -1,9 +1,10 @@
+import { memo } from 'react'
 import { Marker } from 'react-leaflet'
 import { alerts } from '../../../data/alerts'
 import { createAlertIcon } from '../../../lib/alertIcons'
 import { useStore } from '../../../store'
 
-export function AlertLayer() {
+export const AlertLayer = memo(function AlertLayer() {
   const showAlerts = useStore((s) => s.showAlerts)
   const setSelectedItem = useStore((s) => s.setSelectedItem)
 
@@ -23,4 +24,4 @@ export function AlertLayer() {
       ))}
     </>
   )
-}
+})

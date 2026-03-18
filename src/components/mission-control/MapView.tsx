@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react'
+import { useCallback, useMemo } from 'react'
 import L from 'leaflet'
 import { MapContainer, TileLayer, useMapEvents } from 'react-leaflet'
 import { MapController } from './MapController'
@@ -19,6 +19,9 @@ L.Icon.Default.mergeOptions({
   shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
 })
 
+// Canvas renderer — far faster than SVG for 200+ polylines
+const canvasRenderer = L.canvas({ padding: 0.5 })
+
 function MapClickHandler() {
   const clearSelectedItem = useStore((s) => s.clearSelectedItem)
   useMapEvents({ click: () => clearSelectedItem() })
@@ -28,31 +31,32 @@ function MapClickHandler() {
 export function MapView() {
   const showAlerts = useStore((s) => s.showAlerts)
 
-  // Live OSM road data + time-of-day simulation
-  const { segments, loading, source, simulatedTime, roadCount } = useTrafficData()
+  const { segments, loading, source, simulatedTime, roadCount, refresh } = useTrafficData()
 
-  // Force re-render when SimPanel changes speed/hour
-  const [, setRefreshTick] = useState(0)
-  const handleSimRefresh = useCallback(() => setRefreshTick((n) => n + 1), [])
+  // When SimPanel changes speed or hour: fire an immediate tick so the map
+  // reacts right away instead of waiting up to 2 minutes for the next scheduled one.
+  const handleSimRefresh = useCallback(() => refresh(), [refresh])
+
+  // Stable map options — canvas renderer set once at map creation
+  const mapOptions = useMemo(() => ({ renderer: canvasRenderer }), [])
 
   return (
     <div className="relative flex-1 overflow-hidden">
-      {/* Loading overlay */}
+      {/* Non-blocking background load indicator — top-right badge */}
       {loading && (
         <div style={{
-          position: 'absolute', inset: 0, zIndex: 2000,
-          background: 'rgba(248,250,252,0.85)',
-          display: 'flex', alignItems: 'center', justifyContent: 'center',
-          flexDirection: 'column', gap: 10,
+          position: 'absolute', top: 12, right: 12, zIndex: 1000,
+          background: 'rgba(255,255,255,0.92)', borderRadius: 6, padding: '5px 10px',
+          display: 'flex', alignItems: 'center', gap: 7,
+          fontSize: 11, color: '#5a6a88', fontWeight: 500,
+          boxShadow: '0 1px 4px rgba(0,0,0,0.15)',
         }}>
           <div style={{
-            width: 32, height: 32, border: '3px solid #dde3ec',
-            borderTop: '3px solid #1a56db', borderRadius: '50%',
-            animation: 'spin 0.8s linear infinite',
+            width: 12, height: 12, border: '2px solid #dde3ec',
+            borderTop: '2px solid #1a56db', borderRadius: '50%',
+            animation: 'spin 0.8s linear infinite', flexShrink: 0,
           }} />
-          <span style={{ fontSize: 13, color: '#5a6a88', fontWeight: 500 }}>
-            Loading LA road network…
-          </span>
+          Loading road network…
           <style>{`@keyframes spin { to { transform: rotate(360deg); } }`}</style>
         </div>
       )}
@@ -63,6 +67,7 @@ export function MapView() {
         style={{ height: '100%', width: '100%' }}
         zoomControl={false}
         attributionControl={false}
+        {...mapOptions}
       >
         <TileLayer
           url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"

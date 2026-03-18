@@ -113,46 +113,17 @@ function parseWays(elements: unknown[]): OsmWay[] {
 // ─── Public API ───────────────────────────────────────────────────────────────
 
 /**
- * Loads LA road geometry. Uses bundled /la-roads.json first (always available),
- * falling back to live Overpass API.
+ * Loads LA road geometry from the bundled static asset only.
+ * The Overpass API fallback has been removed — la-roads.json is always present.
  */
 export async function loadLARoads(): Promise<OsmWay[]> {
   if (cachedBaseRoads) return cachedBaseRoads
 
-  // 1. Try bundled static asset (pre-fetched real OSM data)
-  try {
-    const resp = await fetch('/la-roads.json')
-    if (resp.ok) {
-      const data = await resp.json() as { elements: unknown[] }
-      cachedBaseRoads = parseWays(data.elements)
-      console.log(`[roads] Loaded ${cachedBaseRoads.length} LA road segments from bundled data`)
-      return cachedBaseRoads
-    }
-  } catch {
-    console.warn('[roads] Bundled la-roads.json unavailable, trying Overpass API…')
-  }
-
-  // 2. Fall back to live Overpass API
-  const QUERY = `
-[out:json][timeout:30];
-(
-  way["highway"~"motorway|trunk"](33.80,-118.70,34.35,-117.80);
-  way["highway"="primary"]["name"](33.90,-118.55,34.20,-118.05);
-  way["highway"="secondary"]["name"](33.95,-118.48,34.15,-118.12);
-);
-out geom;`.trim()
-
-  const resp = await fetch('https://overpass-api.de/api/interpreter', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-    body: `data=${encodeURIComponent(QUERY)}`,
-  })
-
-  if (!resp.ok) throw new Error(`Overpass API ${resp.status}`)
+  const resp = await fetch('/la-roads.json')
+  if (!resp.ok) throw new Error(`[roads] Failed to load la-roads.json: ${resp.status}`)
 
   const data = await resp.json() as { elements: unknown[] }
   cachedBaseRoads = parseWays(data.elements)
-  console.log(`[roads] Loaded ${cachedBaseRoads.length} LA road segments from Overpass API`)
   return cachedBaseRoads
 }
 

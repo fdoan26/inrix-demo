@@ -1,3 +1,4 @@
+import { memo } from 'react'
 import L from 'leaflet'
 import { Pane, Polyline } from 'react-leaflet'
 import type { Segment } from '../../../types'
@@ -11,7 +12,7 @@ interface SegmentLayerProps {
 const PANES = ['segments-green', 'segments-yellow', 'segments-orange', 'segments-red'] as const
 const Z_INDEXES = { 'segments-green': 450, 'segments-yellow': 451, 'segments-orange': 452, 'segments-red': 453 }
 
-export function SegmentLayer({ segments }: SegmentLayerProps) {
+export const SegmentLayer = memo(function SegmentLayer({ segments }: SegmentLayerProps) {
   const showTraffic = useStore((s) => s.showTraffic)
   const setSelectedItem = useStore((s) => s.setSelectedItem)
 
@@ -47,4 +48,4 @@ export function SegmentLayer({ segments }: SegmentLayerProps) {
       ))}
     </>
   )
-}
+})
